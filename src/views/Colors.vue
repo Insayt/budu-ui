@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="b-h1 q-mb-lg">Базовые цвета</div>
     <div class="row items-center q-mb-md">
       <div class="col-1">
         <div class="color color-1"></div>
@@ -199,6 +200,103 @@
         <div class="b-text-s">Для заливки фонов блоков и бордеров</div>
       </div>
     </div>
+    <div class="b-h1 q-mb-lg q-mt-lg">Цвета текста и иконок</div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color _text color-t-1">Aa</div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-link</div>
+        <div class="b-text-s">
+          Для ссылок и текста во второстепенных кнопках
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color _text color-t-2">Aa</div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-link-hover</div>
+        <div class="b-text-s">Для ссылок в состоянии наведения</div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color _text color-t-3">Aa</div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-primary-label</div>
+        <div class="b-text-s">Для основного текста и заголовков</div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color _text color-t-4">Aa</div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-secondary-label</div>
+        <div class="b-text-s">Для второстепенного текста и пояснений</div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color _text color-t-5">Aa</div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-tertiary-label</div>
+        <div class="b-text-s">
+          Для неактивных и вспомогательных пунктов, незначительных пояснений и
+          хелперов
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color _text-dark color-t-6">Aa</div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-primary-label-inverse</div>
+        <div class="b-text-s">
+          Для основного текста и заголовков на инвертированном фоне
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color _text-dark color-t-7">Aa</div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-secondary-label-inverse</div>
+        <div class="b-text-s">
+          Для второстепенного текста и пояснений на инвертированном фоне
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color _text-dark color-t-8">Aa</div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-tertiary-label-inverse</div>
+        <div class="b-text-s">
+          Для неактивных и вспомогательных пунктов, незначительных пояснений и
+          хелперов на инвертированном фоне
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color _text color-t-9">Aa</div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-negative</div>
+        <div class="b-text-s">
+          для отображения текста ошибок или других негативных и деструктивных
+          действий
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -211,11 +309,22 @@ export default {
 <style scoped lang="scss">
 @import "../variables.scss";
 .color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  background-color: #767676;
+  background-color: $b-base-02;
   border: 1px solid rgba(60, 60, 67, 0.18);
+  &._text {
+    background-color: $b-base-02;
+  }
+  &._text-dark {
+    background-color: $b-base-08;
+  }
 }
 .color-1 {
   background-color: $b-primary;
@@ -273,5 +382,32 @@ export default {
 }
 .color-19 {
   background-color: $b-base-09;
+}
+.color-t-1 {
+  color: $b-link;
+}
+.color-t-2 {
+  color: $b-link-hover;
+}
+.color-t-3 {
+  color: $b-primary-label;
+}
+.color-t-4 {
+  color: $b-secondary-label;
+}
+.color-t-5 {
+  color: $b-tertiary-label;
+}
+.color-t-6 {
+  color: $b-primary-label-inverse;
+}
+.color-t-7 {
+  color: $b-secondary-label-inverse;
+}
+.color-t-8 {
+  color: $b-tertiary-label-inverse;
+}
+.color-t-9 {
+  color: $b-negative;
 }
 </style>
