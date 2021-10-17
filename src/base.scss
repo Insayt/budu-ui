@@ -1,0 +1,99 @@
+@import "./assets/fonts/gerbera/stylesheet.css";
+@import "./assets/fonts/inter/stylesheet.css";
+
+.text-budu {
+  color: #f26c55;
+}
+.bg-budu {
+  background: #f26c55;
+}
+
+body {
+  font-family: Inter;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+// Типографика
+.b-h1 {
+  font-family: Gerbera;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.b-h2 {
+  font-family: Gerbera;
+  font-size: 26px;
+  line-height: 36px;
+}
+
+.b-h3 {
+  font-family: Gerbera;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.b-h4 {
+  font-family: Gerbera;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.b-h5 {
+  font-family: Gerbera;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.b-text-l {
+  font-family: Inter;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.b-text-lb {
+  font-family: Inter;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: bold;
+}
+
+.b-text-m {
+  font-family: Inter;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.b-text-mb {
+  font-family: Inter;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.b-text-s {
+  font-family: Inter;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.b-text-sb {
+  font-family: Inter;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.b-text-xs {
+  font-family: Inter;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: bold;
+}
+
+.b-text-xsb {
+  font-family: Inter;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: bold;
+}
