@@ -1,0 +1,150 @@
+<template>
+  <button
+    class="b-btn"
+    :class="{
+      'b-btn-primary': type === 'primary',
+      'b-btn-secondary': type === 'secondary',
+      'b-btn-pale': type === 'pale',
+      'b-btn-ghost': type === 'ghost',
+      'b-btn-outline': type === 'outline',
+      'b-btn-uncolored': type === 'uncolored',
+      'b-btn-l': size === 'l',
+      'b-btn-m': size === 'm',
+      'b-btn-s': size === 's',
+      'b-btn-xs': size === 'xs',
+    }"
+  >
+    <slot></slot>
+  </button>
+</template>
+
+<script>
+export default {
+  name: "b-btn",
+  props: {
+    type: {
+      type: String,
+      default: "primary",
+    },
+    size: {
+      type: String,
+      default: "s",
+    },
+  },
+};
+</script>
+
+<style scoped lang="scss">
+@import "../variables";
+.b-btn {
+  font-size: 13px;
+  line-height: 20px;
+  color: $b-primary-label-inverse;
+  background-color: $b-primary;
+  border-radius: 12px;
+  border: 1px solid $b-primary;
+  padding: 10px 16px;
+  cursor: pointer;
+  outline: none;
+  &:hover:enabled {
+    background-color: $b-primary-hover;
+    border-color: $b-primary-hover;
+  }
+  &:active:enabled {
+    background-color: $b-primary-pressed;
+    border-color: $b-primary-pressed;
+  }
+  &:disabled {
+    opacity: 0.48;
+  }
+
+  &.b-btn-secondary {
+    background-color: $b-secondary;
+    border-color: $b-secondary;
+    &:hover:enabled {
+      background-color: $b-secondary-hover;
+      border-color: $b-secondary-hover;
+    }
+    &:active:enabled {
+      background-color: $b-secondary-pressed;
+      border-color: $b-secondary-pressed;
+    }
+  }
+
+  &.b-btn-pale {
+    color: $b-link;
+    background-color: $b-primary-pale;
+    border-color: $b-primary-pale;
+    &:hover:enabled {
+      background-color: $b-primary-pale-hover;
+      border-color: $b-primary-pale-hover;
+    }
+    &:active:enabled {
+      background-color: $b-primary-pale;
+      border-color: $b-primary-pale;
+    }
+  }
+
+  &.b-btn-ghost {
+    color: $b-link;
+    background-color: transparent;
+    border-color: transparent;
+    &:hover:enabled {
+      background-color: $b-primary-pale;
+      border-color: $b-primary-pale;
+    }
+    &:active:enabled {
+      background-color: $b-primary-pale-hover;
+      border-color: $b-primary-pale-hover;
+    }
+  }
+
+  &.b-btn-outline {
+    color: $b-link;
+    background-color: transparent;
+    border-color: $b-primary;
+    &:hover:enabled {
+      background-color: $b-primary-pale;
+      border-color: $b-primary;
+    }
+    &:active:enabled {
+      background-color: $b-primary-pale-hover;
+      border-color: $b-primary;
+    }
+  }
+
+  &.b-btn-uncolored {
+    color: $b-primary-label;
+    background-color: transparent;
+    border-color: $b-base-09-20;
+    &:hover:enabled {
+      background-color: $b-base-09-10;
+      border-color: $b-base-09-20;
+    }
+    &:active:enabled {
+      background-color: $b-base-09-30;
+      border-color: $b-base-09-20;
+    }
+  }
+
+  &.b-btn-l {
+    font-size: 15px;
+    padding: 18px 20px;
+  }
+
+  &.b-btn-m {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+
+  &.b-btn-s {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  &.b-btn-xs {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+</style>

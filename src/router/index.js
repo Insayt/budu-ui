@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Typography from "../views/Typography";
 import Colors from "../views/Colors";
 import Icons from "../views/Icons";
+import Buttons from "../views/Buttons";
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,11 @@ const routes = [
     path: "/icons",
     name: "icons",
     component: Icons,
+  },
+  {
+    path: "/buttons",
+    name: "buttons",
+    component: Buttons,
   },
 ];
 

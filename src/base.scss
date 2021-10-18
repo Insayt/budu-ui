@@ -1,6 +1,7 @@
 @import "./assets/fonts/gerbera/stylesheet.css";
 @import "./assets/fonts/inter/stylesheet.css";
 @import "./assets/icons/style.css";
+@import "./variables";
 
 .text-budu {
   color: #f26c55;
@@ -97,4 +98,10 @@ body {
   font-size: 11px;
   line-height: 16px;
   font-weight: bold;
+}
+
+.b-text-link {
+  font-family: Inter;
+  color: $b-link;
+  text-decoration: none;
 }

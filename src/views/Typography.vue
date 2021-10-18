@@ -106,7 +106,6 @@
         </div>
       </div>
     </div>
-
     <div class="row items-center q-mb-md">
       <div class="col-1">
         <q-badge color="budu">.b-text-sb</q-badge>
@@ -118,6 +117,14 @@
           molestias sapiente necessitatibus dolor saepe inventore, soluta id
           accusantium voluptas beatae
         </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <q-badge color="budu">.b-text-link</q-badge>
+      </div>
+      <div class="col-11">
+        <a href="#" class="b-text-link">Пример текста ссылки</a>
       </div>
     </div>
   </div>
