@@ -1,39 +1,46 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import Typography from '../views/Typography';
-import Colors from '../views/Colors';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import Typography from "../views/Typography";
+import Colors from "../views/Colors";
+import Icons from "../views/Icons";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
+    path: "/about",
+    name: "About",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: '/typography',
-    name: 'typography',
+    path: "/typography",
+    name: "typography",
     component: Typography,
   },
   {
-    path: '/colors',
-    name: 'colors',
+    path: "/colors",
+    name: "colors",
     component: Colors,
+  },
+  {
+    path: "/icons",
+    name: "icons",
+    component: Icons,
   },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
   routes,
 });

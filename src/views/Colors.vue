@@ -297,6 +297,271 @@
         </div>
       </div>
     </div>
+    <div class="b-h1 q-mb-lg q-mt-lg">Вспомогательная палитра</div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s-1"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-101</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s-2"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-102</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s-3"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-103</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s-4"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-104</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s2-1"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-201</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s2-2"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-202</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s2-3"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-203</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s2-4"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-204</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s3-1"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-301</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s3-2"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-302</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s3-3"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-303</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s3-4"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-304</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s4-1"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-401</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s4-2"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-402</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s4-3"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-403</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s4-4"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-404</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s5-1"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-501</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s5-2"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-502</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s5-3"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-503</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s5-4"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-504</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s6-1"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-601</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s6-2"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-602</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s6-3"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-603</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="col-1">
+        <div class="color color-s6-4"></div>
+      </div>
+      <div class="col-11">
+        <div class="b-text-lb">$b-support-604</div>
+        <div class="b-text-s">
+          Для фоновой заливки интерфейсных элементов и для иллюстраций
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -409,5 +674,77 @@ export default {
 }
 .color-t-9 {
   color: $b-negative;
+}
+.color-s-1 {
+  background-color: $b-support-101;
+}
+.color-s-2 {
+  background-color: $b-support-102;
+}
+.color-s-3 {
+  background-color: $b-support-103;
+}
+.color-s-4 {
+  background-color: $b-support-104;
+}
+.color-s2-1 {
+  background-color: $b-support-201;
+}
+.color-s2-2 {
+  background-color: $b-support-202;
+}
+.color-s2-3 {
+  background-color: $b-support-203;
+}
+.color-s2-4 {
+  background-color: $b-support-204;
+}
+.color-s3-1 {
+  background-color: $b-support-301;
+}
+.color-s3-2 {
+  background-color: $b-support-302;
+}
+.color-s3-3 {
+  background-color: $b-support-303;
+}
+.color-s3-4 {
+  background-color: $b-support-304;
+}
+.color-s4-1 {
+  background-color: $b-support-401;
+}
+.color-s4-2 {
+  background-color: $b-support-402;
+}
+.color-s4-3 {
+  background-color: $b-support-403;
+}
+.color-s4-4 {
+  background-color: $b-support-404;
+}
+.color-s5-1 {
+  background-color: $b-support-501;
+}
+.color-s5-2 {
+  background-color: $b-support-502;
+}
+.color-s5-3 {
+  background-color: $b-support-503;
+}
+.color-s5-4 {
+  background-color: $b-support-504;
+}
+.color-s6-1 {
+  background-color: $b-support-601;
+}
+.color-s6-2 {
+  background-color: $b-support-602;
+}
+.color-s6-3 {
+  background-color: $b-support-603;
+}
+.color-s6-4 {
+  background-color: $b-support-604;
 }
 </style>

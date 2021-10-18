@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="b-h1 q-mb-lg">Типографика</div>
     <div class="row items-center">
       <div class="col-1">
         <q-badge color="budu">.b-h1</q-badge>
@@ -46,9 +47,10 @@
       </div>
       <div class="col-11">
         <div class="b-text-l">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid ad
-          quas sunt voluptatum officia dolorum cumque, possimus nihil molestias sapiente
-          necessitatibus dolor saepe inventore, soluta id accusantium voluptas beatae
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+          aliquid ad quas sunt voluptatum officia dolorum cumque, possimus nihil
+          molestias sapiente necessitatibus dolor saepe inventore, soluta id
+          accusantium voluptas beatae
         </div>
       </div>
     </div>
@@ -58,9 +60,10 @@
       </div>
       <div class="col-11">
         <div class="b-text-lb">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid ad
-          quas sunt voluptatum officia dolorum cumque, possimus nihil molestias sapiente
-          necessitatibus dolor saepe inventore, soluta id accusantium voluptas beatae
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+          aliquid ad quas sunt voluptatum officia dolorum cumque, possimus nihil
+          molestias sapiente necessitatibus dolor saepe inventore, soluta id
+          accusantium voluptas beatae
         </div>
       </div>
     </div>
@@ -70,9 +73,10 @@
       </div>
       <div class="col-11">
         <div class="b-text-m">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid ad
-          quas sunt voluptatum officia dolorum cumque, possimus nihil molestias sapiente
-          necessitatibus dolor saepe inventore, soluta id accusantium voluptas beatae
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+          aliquid ad quas sunt voluptatum officia dolorum cumque, possimus nihil
+          molestias sapiente necessitatibus dolor saepe inventore, soluta id
+          accusantium voluptas beatae
         </div>
       </div>
     </div>
@@ -82,9 +86,10 @@
       </div>
       <div class="col-11">
         <div class="b-text-mb">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid ad
-          quas sunt voluptatum officia dolorum cumque, possimus nihil molestias sapiente
-          necessitatibus dolor saepe inventore, soluta id accusantium voluptas beatae
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+          aliquid ad quas sunt voluptatum officia dolorum cumque, possimus nihil
+          molestias sapiente necessitatibus dolor saepe inventore, soluta id
+          accusantium voluptas beatae
         </div>
       </div>
     </div>
@@ -94,9 +99,10 @@
       </div>
       <div class="col-11">
         <div class="b-text-s">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid ad
-          quas sunt voluptatum officia dolorum cumque, possimus nihil molestias sapiente
-          necessitatibus dolor saepe inventore, soluta id accusantium voluptas beatae
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+          aliquid ad quas sunt voluptatum officia dolorum cumque, possimus nihil
+          molestias sapiente necessitatibus dolor saepe inventore, soluta id
+          accusantium voluptas beatae
         </div>
       </div>
     </div>
@@ -107,9 +113,10 @@
       </div>
       <div class="col-11">
         <div class="b-text-sb">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid ad
-          quas sunt voluptatum officia dolorum cumque, possimus nihil molestias sapiente
-          necessitatibus dolor saepe inventore, soluta id accusantium voluptas beatae
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+          aliquid ad quas sunt voluptatum officia dolorum cumque, possimus nihil
+          molestias sapiente necessitatibus dolor saepe inventore, soluta id
+          accusantium voluptas beatae
         </div>
       </div>
     </div>
@@ -118,7 +125,7 @@
 
 <script>
 export default {
-  name: 'Typography',
+  name: "Typography",
 };
 </script>
 
