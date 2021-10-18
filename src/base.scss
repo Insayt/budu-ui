@@ -104,4 +104,7 @@ body {
   font-family: Inter;
   color: $b-link;
   text-decoration: none;
+  &:hover {
+    color: $b-link-hover;
+  }
 }
