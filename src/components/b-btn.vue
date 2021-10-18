@@ -12,15 +12,40 @@
       'b-btn-m': size === 'm',
       'b-btn-s': size === 's',
       'b-btn-xs': size === 'xs',
+      'b-btn-icon-only': iconOnly,
     }"
+    v-on="$listeners"
+    v-bind="$attrs"
   >
+    <template v-if="iconLeft">
+      <b-icon
+        class="b-btn-icon-left"
+        :name="iconLeft"
+        :size="getIconSize()"
+        :color="getIconColor()"
+      ></b-icon>
+    </template>
     <slot></slot>
+    <template v-if="iconOnly">
+      <b-icon :name="iconOnly" :size="getIconSize()"></b-icon>
+    </template>
+    <template v-if="iconRight">
+      <b-icon
+        class="b-btn-icon-right"
+        :name="iconRight"
+        :size="getIconSize()"
+      ></b-icon>
+    </template>
   </button>
 </template>
 
 <script>
+import BIcon from "./b-icon";
 export default {
   name: "b-btn",
+  components: {
+    BIcon,
+  },
   props: {
     type: {
       type: String,
@@ -30,6 +55,28 @@ export default {
       type: String,
       default: "s",
     },
+    iconLeft: String,
+    iconRight: String,
+    iconOnly: String,
+  },
+  methods: {
+    getIconSize() {
+      if (this.size === "l") return "24";
+      if (this.size === "m") return "18";
+      if (this.size === "s") return "16";
+      if (this.size === "xs") return "14";
+      return "16";
+    },
+    getIconColor() {
+      if (this.type === "uncolored") return "#00000";
+      if (
+        this.type === "pale" ||
+        this.type === "ghost" ||
+        this.type === "outline"
+      )
+        return "#ef553b";
+      return "#ffffff";
+    },
   },
 };
 </script>
@@ -37,6 +84,9 @@ export default {
 <style scoped lang="scss">
 @import "../variables";
 .b-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 13px;
   line-height: 20px;
   color: $b-primary-label-inverse;
@@ -46,6 +96,7 @@ export default {
   padding: 10px 16px;
   cursor: pointer;
   outline: none;
+
   &:hover:enabled {
     background-color: $b-primary-hover;
     border-color: $b-primary-hover;
@@ -145,6 +196,19 @@ export default {
   &.b-btn-xs {
     font-size: 13px;
     padding: 6px 12px;
+  }
+
+  &.b-btn-icon-only {
+    padding: 16px;
+    border-radius: 50%;
+  }
+
+  &-icon-left {
+    margin-right: 0.5em;
+  }
+
+  &-icon-right {
+    margin-left: 0.5em;
   }
 }
 </style>
