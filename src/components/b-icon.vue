@@ -3,7 +3,10 @@
 </template>
 
 <script>
+import { colored } from "./mixins/colored";
 export default {
+  name: "b-icon",
+  mixins: [colored],
   props: {
     name: {
       type: String,
@@ -12,14 +15,17 @@ export default {
     size: String,
     color: String,
   },
-  name: "b-icon",
   methods: {
     getStyles() {
       const style = {
         fontSize: this.size ? this.size + "px" : "16px",
       };
       if (this.color) {
-        style.color = this.color;
+        if (this.getSystemColorByName(this.color)) {
+          style.color = this.getSystemColorByName(this.color);
+        } else {
+          style.color = this.color;
+        }
       }
       return style;
     },

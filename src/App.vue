@@ -24,6 +24,9 @@
             <q-item :to="{ name: 'buttons' }" clickable v-ripple>
               <q-item-section>Кнопки</q-item-section>
             </q-item>
+            <q-item :to="{ name: 'badges' }" clickable v-ripple>
+              <q-item-section>Бейджи</q-item-section>
+            </q-item>
           </q-list>
         </q-scroll-area>
       </q-drawer>

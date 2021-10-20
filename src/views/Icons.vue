@@ -2,6 +2,7 @@
   <div>
     <div class="b-h1 q-mb-lg">Иконки</div>
     <code class="q-mb-lg" v-text="t"></code>
+    <code class="q-mb-lg" v-text="t1"></code>
     <div class="icons-table">
       <div class="icons-table__item" v-for="(i, key) in icons" :key="key">
         <b-icon :name="i" size="32" :color="getRandomColor()"></b-icon>
@@ -21,6 +22,7 @@ export default {
   data: function () {
     return {
       t: `<b-icon name="archive" size="32" color="#000000"></b-icon>`,
+      t1: `<b-icon name="archive" size="32" color="$b-primary"></b-icon>`,
       icons: [
         "archive",
         "alcohol",

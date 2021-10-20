@@ -5,6 +5,7 @@ import Typography from "../views/Typography";
 import Colors from "../views/Colors";
 import Icons from "../views/Icons";
 import Buttons from "../views/Buttons";
+import Badges from "../views/Badges";
 
 Vue.use(VueRouter);
 
@@ -42,6 +43,11 @@ const routes = [
     path: "/buttons",
     name: "buttons",
     component: Buttons,
+  },
+  {
+    path: "/badges",
+    name: "badges",
+    component: Badges,
   },
 ];
 
