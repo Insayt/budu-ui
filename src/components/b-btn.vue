@@ -84,7 +84,7 @@ export default {
 <style scoped lang="scss">
 @import "../variables";
 .b-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: space-between;
   font-size: 13px;

@@ -65,6 +65,9 @@
         <q-item :to="{ name: 'checkboxes' }" clickable v-ripple>
           <q-item-section>Чекбоксы</q-item-section>
         </q-item>
+        <q-item :to="{ name: 'dropdowns' }" clickable v-ripple>
+          <q-item-section>Дропдауны</q-item-section>
+        </q-item>
       </q-list>
     </div>
 
@@ -77,6 +80,9 @@
 </template>
 
 <style lang="scss">
+.icon-svg {
+  content: url("./assets/logo.png");
+}
 .sidebar {
   width: 300px;
   position: fixed;

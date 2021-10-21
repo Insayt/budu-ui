@@ -134,7 +134,7 @@
         вкл/выкл звук и т.д.
       </div>
     </div>
-    <code class="q-mb-lg" v-text="t11"></code>
+    <code class="q-mb-lg" v-text="t12"></code>
   </div>
 </template>
 
@@ -157,7 +157,8 @@ export default {
       t8: `<b-button size="s">Button S</b-button>или просто<b-button>Button S</b-button>`,
       t9: `<b-button size="xs">Button XS</b-button>`,
       t10: ` <b-button icon-left="calendar">Button</b-button>`,
-      t11: `<b-button icon-only="calendar"></b-button>`,
+      t11: ` <b-button icon-right="arrow-down">Button</b-button>`,
+      t12: `<b-button icon-only="calendar"></b-button>`,
     };
   },
   methods: {

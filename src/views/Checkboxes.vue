@@ -85,6 +85,7 @@
 <script>
 import BBadge from "../components/b-badge";
 import BCheckbox from "../components/b-checkbox";
+
 export default {
   name: "Badges",
   components: {
