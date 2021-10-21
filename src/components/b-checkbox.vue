@@ -19,6 +19,12 @@
       name="check"
       color="$b-base-01"
     ></b-icon>
+    <div class="b-checkbox-hint" v-if="hasSlotHint">
+      <b-icon name="help" color="$b-tertiary-label"></b-icon>
+      <div class="b-checkbox-hint-content">
+        <slot name="hint"></slot>
+      </div>
+    </div>
   </label>
 </template>
 
@@ -61,6 +67,9 @@ export default {
       }
       return this.modelValue === this.trueValue;
     },
+    hasSlotHint() {
+      return this.$slots.hint;
+    },
   },
   methods: {
     updateInput(event) {
@@ -88,7 +97,7 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
-  padding-left: 28px;
+  padding-left: 29px;
   cursor: pointer;
   font-size: 15px;
   line-height: 20px;
@@ -136,6 +145,68 @@ export default {
       height: 16px;
       width: 16px;
       top: 2px;
+    }
+    .b-checkbox-hint {
+      top: 3px;
+    }
+  }
+
+  .b-checkbox-hint {
+    position: relative;
+    margin-left: 8px;
+    top: 2px;
+
+    .b-checkbox-hint-content {
+      color: $b-base-09;
+      background-color: $b-base-01;
+      font-size: 13px;
+      line-height: 20px;
+      display: none;
+      min-width: 130px;
+      max-width: 300px;
+      position: absolute;
+      padding: 8px 10px;
+      border: 1px solid $b-base-04;
+      border-radius: 8px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+
+      &:before {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -9px;
+        display: block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 8px 0 8px;
+        border-color: $b-base-04 transparent transparent transparent;
+      }
+
+      &:after {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -8px;
+        display: block;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 8px 0 8px;
+        border-color: white transparent transparent transparent;
+      }
+    }
+    &:hover {
+      .b-checkbox-hint-content {
+        display: block;
+      }
     }
   }
 }

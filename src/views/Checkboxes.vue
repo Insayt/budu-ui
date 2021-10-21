@@ -56,8 +56,29 @@
       </div>
       <div class="content"></div>
     </div>
-    <code class="q-mb-lg" v-text="t5"></code>
+    <code class="q-mb-md" v-text="t5"></code>
     <code class="q-mb-lg" v-text="t6"></code>
+
+    <div class="b-h3 q-mb-md">Иконка помощи</div>
+    <div class="row items-center q-mb-md">
+      <div class="wrap">
+        <b-checkbox v-model="m3" value="1">
+          Наведи и удивись
+          <template slot="hint"> Текст подсказки </template>
+        </b-checkbox>
+      </div>
+      <div class="content"></div>
+    </div>
+    <div class="row items-center q-mb-md">
+      <div class="wrap">
+        <b-checkbox v-model="m3" value="2" size="s">
+          Наведи и удивись
+          <template slot="hint"> Текст подсказки </template>
+        </b-checkbox>
+      </div>
+      <div class="content"></div>
+    </div>
+    <code class="q-mb-md" v-text="t7"></code>
   </div>
 </template>
 
@@ -81,6 +102,7 @@ export default {
       t4: `<b-checkbox v-model="m2" value="Третий" :disabled="true">Третий</b-checkbox>`,
       t5: `<b-checkbox v-model="m3">Обычный размер (по умолчанию)</b-checkbox>`,
       t6: `<b-checkbox v-model="m3" size="s">Маленький размер</b-checkbox>`,
+      t7: `<b-checkbox v-model="m3">Наведи и удивись <template slot="hint"> Текст подсказки </template> </b-checkbox>`,
     };
   },
 };

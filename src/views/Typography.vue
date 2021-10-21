@@ -2,6 +2,10 @@
   <div>
     <div class="b-h1 q-mb-lg">Типографика</div>
     <div class="row items-center">
+      <div class="col-1">CSS класс:</div>
+      <div class="col-11">Пример:</div>
+    </div>
+    <div class="row items-center">
       <div class="col-1">
         <b-badge>.b-h1</b-badge>
       </div>

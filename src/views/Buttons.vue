@@ -154,9 +154,7 @@ export default {
       t5: `<b-button type="uncolored">Uncolored</b-button>`,
       t6: `<b-button size="l">Primary</b-button>`,
       t7: `<b-button size="m">Button M</b-button>`,
-      t8: `<b-button size="s">Button S</b-button>
-или просто
-<b-button>Button S</b-button>`,
+      t8: `<b-button size="s">Button S</b-button>или просто<b-button>Button S</b-button>`,
       t9: `<b-button size="xs">Button XS</b-button>`,
       t10: ` <b-button icon-left="calendar">Button</b-button>`,
       t11: `<b-button icon-only="calendar"></b-button>`,
