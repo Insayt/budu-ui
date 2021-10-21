@@ -121,6 +121,10 @@ export default {
     background-color: $b-base-01;
     border: 1px solid $b-base-05;
     border-radius: 4px;
+
+    &:before {
+      display: none;
+    }
   }
 
   &:hover input ~ .b-checkbox-checkmark {
@@ -130,6 +134,9 @@ export default {
   input:checked ~ .b-checkbox-checkmark {
     background-color: $b-primary;
     border-color: $b-primary;
+    &:before {
+      display: block;
+    }
   }
 
   &.b-checkbox-disabled {
