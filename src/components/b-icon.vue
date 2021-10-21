@@ -1,5 +1,5 @@
 <template>
-  <i :class="`icon-${name}`" :style="getStyles()"></i>
+  <i class="b-icon" :class="`icon-${name}`" :style="getStyles()"></i>
 </template>
 
 <script>
@@ -33,4 +33,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.b-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

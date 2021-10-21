@@ -23,7 +23,7 @@
     </div>
     <code class="q-mb-md" v-text="t3"></code>
 
-    <div class="b-h1 q-mb-lg">Иконки</div>
+    <div class="b-h3 q-mb-lg">Иконки</div>
     <div class="row items-center q-mb-md">
       <div class="wrap">
         <b-badge size="m" icon="check">M - 32px</b-badge>
@@ -44,7 +44,7 @@
     </div>
     <code class="q-mb-md" v-text="t4"></code>
 
-    <div class="b-h1 q-mb-lg">Цвета</div>
+    <div class="b-h3 q-mb-lg">Цвета</div>
     <div class="row items-center q-mb-md">
       <div class="wrap">
         <b-badge size="m" color="$b-support-301">M - 32px</b-badge>
@@ -55,15 +55,21 @@
     </div>
     <div class="row items-center q-mb-md">
       <div class="wrap">
-        <b-badge size="m" color="$b-support-304">M - 32px</b-badge>
+        <b-badge size="m" color="#000000" text-color="#f27b67">
+          M - 32px
+        </b-badge>
       </div>
-      <div class="content"></div>
+      <div class="content">
+        Либо можно указать нужный цвет в параметре "text-color"
+      </div>
     </div>
     <div class="row items-center q-mb-md">
       <div class="wrap">
-        <b-badge size="m" icon="check" color="#000000">M - 32px</b-badge>
+        <b-badge size="m" color="$b-support-504"> M - 32px </b-badge>
       </div>
-      <div class="content"></div>
+      <div class="content">
+        Так же поддерживаются переменные цветов из палитры
+      </div>
     </div>
     <code class="q-mb-md" v-text="t5"></code>
     <code class="q-mb-md" v-text="t6"></code>
@@ -85,8 +91,8 @@ export default {
       t3: `<b-badge size="xs">XS - 32px</b-badge>`,
       t4: `<b-badge size="m" icon="check">XS - 20px</b-badge>`,
       t5: `<b-badge size="m" color="$b-support-301">M - 32px</b-badge>`,
-      t6: `<b-badge size="m" color="$b-support-304">M - 32px</b-badge>`,
-      t7: `<b-badge size="m" icon="check" color="#000000">M - 32px</b-badge>`,
+      t6: `<b-badge size="m" color="#000000" text-color="#f27b67">M - 32px</b-badge>`,
+      t7: `<b-badge size="m" color="$b-support-504">M - 32px</b-badge>`,
     };
   },
 };

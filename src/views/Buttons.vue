@@ -66,7 +66,7 @@
       </div>
     </div>
     <code class="q-mb-lg" v-text="t5"></code>
-    <div class="b-h1 q-mb-lg">Размеры</div>
+    <div class="b-h3 q-mb-lg">Размеры</div>
     <div class="row items-center q-mb-md">
       <div class="btn-wrap">
         <b-button size="l">Button L</b-button>
@@ -104,7 +104,7 @@
       </div>
     </div>
     <code class="q-mb-lg" v-text="t9"></code>
-    <div class="b-h1 q-mb-lg">Иконки</div>
+    <div class="b-h3 q-mb-lg">Иконки</div>
     <div class="row items-center q-mb-md">
       <div class="btn-wrap">
         <b-button type="outline" icon-left="calendar">Button</b-button>

@@ -1,20 +1,15 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
 import Typography from "../views/Typography";
 import Colors from "../views/Colors";
 import Icons from "../views/Icons";
 import Buttons from "../views/Buttons";
 import Badges from "../views/Badges";
+import Checkboxes from "../views/Checkboxes";
 
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
   {
     path: "/about",
     name: "About",
@@ -49,10 +44,15 @@ const routes = [
     name: "badges",
     component: Badges,
   },
+  {
+    path: "/checkboxes",
+    name: "checkboxes",
+    component: Checkboxes,
+  },
+  { path: "*", redirect: "/typography" },
 ];
 
 const router = new VueRouter({
-  mode: "history",
   base: process.env.BASE_URL,
   routes,
 });

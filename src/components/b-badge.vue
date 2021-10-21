@@ -32,6 +32,7 @@ export default {
     },
     icon: String,
     color: String,
+    textColor: String,
   },
   methods: {
     getContrastYIQ(hexcolor) {
@@ -58,6 +59,14 @@ export default {
         }
         style.color = this.getContrastYIQ(style.backgroundColor);
       }
+      if (this.textColor) {
+        if (this.getSystemColorByName(this.textColor)) {
+          style.color = this.getSystemColorByName(this.textColor);
+        } else {
+          style.color = this.textColor;
+        }
+      }
+
       return style;
     },
   },
