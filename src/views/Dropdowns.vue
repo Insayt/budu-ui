@@ -1,41 +1,91 @@
 <template>
   <div>
-    123
-    <b-dropdown label="Заголовок дропдауна">
-      <b-dropdown-item @click="onClick">
-        Некий текст для дропдауна
-      </b-dropdown-item>
-      <b-dropdown-item> Некий текст для дропдауна </b-dropdown-item>
-    </b-dropdown>
-    <!--    <b-dropdown-->
-    <!--      label="Заголовок дропдауна2"-->
-    <!--      button-size="xs"-->
-    <!--      button-type="uncolored"-->
-    <!--    >-->
-    <!--      <b-dropdown-item @click="onClick">-->
-    <!--        Некий текст для дропдауна2-->
-    <!--      </b-dropdown-item>-->
-    <!--      <b-dropdown-item> Некий текст для дропдауна </b-dropdown-item>-->
-    <!--    </b-dropdown>-->
-    <div>
-      123123
-      <q-popup-proxy>
-        <q-banner>
-          You have lost connection to the internet. This app is offline.
-        </q-banner>
-      </q-popup-proxy>
+    <div class="b-h1 q-mb-lg">Для демо</div>
+    <div class="test">
+      <div class="q-mb-lg">
+        <b-input
+          icon="home"
+          canceled
+          v-model="searchText"
+          size="l"
+          placeholder="InputSearch L"
+        />
+      </div>
+      <div class="q-mb-lg">
+        <b-input
+          icon="bell"
+          canceled
+          v-model="searchText"
+          size="m"
+          placeholder="InputSearch M"
+        />
+      </div>
+      <div class="q-mb-lg">
+        <b-input
+          icon="doctor"
+          canceled
+          v-model="searchText"
+          size="s"
+          placeholder="InputSearch S"
+        />
+      </div>
+      <div class="q-mb-lg">
+        <b-input
+          icon="search"
+          canceled
+          v-model="searchText"
+          size="xs"
+          placeholder="InputSearch XS"
+        />
+      </div>
+    </div>
+
+    <div class="q-mb-lg">
+      <b-dropdown label="Dropdown Primary">
+        <b-dropdown-item @click="onClick">
+          Некий текст для дропдауна
+        </b-dropdown-item>
+        <b-dropdown-item> Некий текст для дропдауна </b-dropdown-item>
+      </b-dropdown>
+    </div>
+
+    <div class="q-mb-lg">
+      <b-dropdown
+        label="Dropdown Secondary"
+        button-size="s"
+        button-type="uncolored"
+      >
+        <b-dropdown-item @click="onClick">
+          Некий текст для дропдауна2
+        </b-dropdown-item>
+        <b-dropdown-item> Некий текст для дропдауна </b-dropdown-item>
+      </b-dropdown>
+    </div>
+
+    <div class="q-mb-lg">
+      <b-select placeholder="Multiple Select"></b-select>
     </div>
   </div>
 </template>
 
 <script>
 import BDropdown from "../components/b-dropdown";
+import BSelect from "../components/b-select";
 import BDropdownItem from "../components/b-dropdown-item";
+import BInput from "../components/b-input";
+
 export default {
   name: "Dropdowns",
   components: {
     BDropdown,
     BDropdownItem,
+    BSelect,
+    BInput,
+  },
+  data: function() {
+    return {
+      searchText: "",
+    };
   },
   methods: {
     onClick() {
@@ -45,4 +95,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.test {
+  max-width: 300px;
+}
+</style>

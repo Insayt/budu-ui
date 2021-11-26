@@ -109,106 +109,105 @@ export default {
     opacity: 0.48;
   }
 
-  &.b-btn-secondary {
-    background-color: $b-secondary;
-    border-color: $b-secondary;
-    &:hover:enabled {
-      background-color: $b-secondary-hover;
-      border-color: $b-secondary-hover;
-    }
-    &:active:enabled {
-      background-color: $b-secondary-pressed;
-      border-color: $b-secondary-pressed;
-    }
-  }
-
-  &.b-btn-pale {
-    color: $b-link;
-    background-color: $b-primary-pale;
-    border-color: $b-primary-pale;
-    &:hover:enabled {
-      background-color: $b-primary-pale-hover;
-      border-color: $b-primary-pale-hover;
-    }
-    &:active:enabled {
-      background-color: $b-primary-pale;
-      border-color: $b-primary-pale;
-    }
-  }
-
-  &.b-btn-ghost {
-    color: $b-link;
-    background-color: transparent;
-    border-color: transparent;
-    &:hover:enabled {
-      background-color: $b-primary-pale;
-      border-color: $b-primary-pale;
-    }
-    &:active:enabled {
-      background-color: $b-primary-pale-hover;
-      border-color: $b-primary-pale-hover;
-    }
-  }
-
-  &.b-btn-outline {
-    color: $b-link;
-    background-color: transparent;
-    border-color: $b-primary;
-    &:hover:enabled {
-      background-color: $b-primary-pale;
-      border-color: $b-primary;
-    }
-    &:active:enabled {
-      background-color: $b-primary-pale-hover;
-      border-color: $b-primary;
-    }
-  }
-
-  &.b-btn-uncolored {
-    color: $b-primary-label;
-    background-color: transparent;
-    border-color: $b-base-09-20;
-    &:hover:enabled {
-      background-color: $b-base-09-10;
-      border-color: $b-base-09-20;
-    }
-    &:active:enabled {
-      background-color: $b-base-09-30;
-      border-color: $b-base-09-20;
-    }
-  }
-
-  &.b-btn-l {
-    font-size: 15px;
-    padding: 18px 20px;
-  }
-
-  &.b-btn-m {
-    font-size: 15px;
-    padding: 14px 16px;
-  }
-
-  &.b-btn-s {
-    font-size: 13px;
-    padding: 10px 16px;
-  }
-
-  &.b-btn-xs {
-    font-size: 13px;
-    padding: 6px 12px;
-  }
-
-  &.b-btn-icon-only {
-    padding: 16px;
-    border-radius: 50%;
-  }
-
   &-icon-left {
     margin-right: 0.5em;
   }
 
   &-icon-right {
     margin-left: 0.5em;
+  }
+}
+.b-btn-l {
+  font-size: 15px;
+  padding: 18px 20px;
+}
+
+.b-btn-m {
+  font-size: 15px;
+  padding: 14px 16px;
+}
+
+.b-btn-s {
+  font-size: 13px;
+  padding: 10px 16px;
+}
+
+.b-btn-xs {
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.b-btn-icon-only {
+  padding: 16px;
+  border-radius: 50%;
+}
+
+.b-btn-secondary {
+  background-color: $b-secondary;
+  border-color: $b-secondary;
+  &:hover:enabled {
+    background-color: $b-secondary-hover;
+    border-color: $b-secondary-hover;
+  }
+  &:active:enabled {
+    background-color: $b-secondary-pressed;
+    border-color: $b-secondary-pressed;
+  }
+}
+
+.b-btn-pale {
+  color: $b-link;
+  background-color: $b-primary-pale;
+  border-color: $b-primary-pale;
+  &:hover:enabled {
+    background-color: $b-primary-pale-hover;
+    border-color: $b-primary-pale-hover;
+  }
+  &:active:enabled {
+    background-color: $b-primary-pale;
+    border-color: $b-primary-pale;
+  }
+}
+
+.b-btn-ghost {
+  color: $b-link;
+  background-color: transparent;
+  border-color: transparent;
+  &:hover:enabled {
+    background-color: $b-primary-pale;
+    border-color: $b-primary-pale;
+  }
+  &:active:enabled {
+    background-color: $b-primary-pale-hover;
+    border-color: $b-primary-pale-hover;
+  }
+}
+
+.b-btn-outline {
+  color: $b-link;
+  background-color: transparent;
+  border-color: $b-primary;
+  &:hover:enabled {
+    background-color: $b-primary-pale;
+    border-color: $b-primary;
+  }
+  &:active:enabled {
+    background-color: $b-primary-pale-hover;
+    border-color: $b-primary;
+  }
+}
+
+.b-btn-uncolored {
+  color: $b-primary-label;
+  background-color: transparent;
+  border-color: $b-base-09-20;
+  &:hover:enabled {
+    background-color: $b-base-09-10;
+    border-color: $b-base-09-20;
+  }
+  &:active:enabled {
+    background-color: $b-base-09-30;
+    border-color: $b-base-09-20;
   }
 }
 </style>

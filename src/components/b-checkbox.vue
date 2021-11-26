@@ -4,6 +4,7 @@
     :class="{
       'b-checkbox-disabled': disabled,
       'b-checkbox-small': size === 's',
+      'b-checkbox-select': _inselect
     }"
   >
     <slot></slot>
@@ -59,6 +60,9 @@ export default {
       type: String,
       default: "m",
     },
+    _inselect: { // Если чекбокс внутри селекта
+      type: Boolean
+    }
   },
   computed: {
     shouldBeChecked() {
@@ -131,9 +135,13 @@ export default {
     background-color: $b-base-02;
   }
 
+  &.b-checkbox-select:hover input ~ .b-checkbox-checkmark {
+    background-color: $b-base-01;
+  }
+
   input:checked ~ .b-checkbox-checkmark {
-    background-color: $b-primary;
-    border-color: $b-primary;
+    background-color: $b-primary !important;
+    border-color: $b-primary !important;
     &:before {
       display: block;
     }

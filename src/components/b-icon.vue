@@ -1,5 +1,10 @@
 <template>
-  <i class="b-icon" :class="`icon-${name}`" :style="getStyles()"></i>
+  <i
+    class="b-icon"
+    :class="`icon-${name}`"
+    :style="getStyles()"
+    v-on="$listeners"
+  ></i>
 </template>
 
 <script>
