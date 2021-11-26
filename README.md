@@ -1,5 +1,11 @@
 # budu-ui
 
+## Project publish
+```
+npm version patch
+npm publish
+```
+
 ## Project setup
 ```
 npm install
