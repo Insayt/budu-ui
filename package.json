@@ -1,6 +1,6 @@
 {
   "name": "budu-ui",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": "Alexandr Insayt",
   "main": "./dist/budu-ui.common.js",
   "private": false,
