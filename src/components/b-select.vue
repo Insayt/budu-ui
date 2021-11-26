@@ -20,7 +20,7 @@
         Выбрано: {{ value.length }}
       </div>
     </div>
-    <q-popup-proxy ref="content" :offset="[0, 8]">
+    <q-popup-proxy ref="content" :offset="[0, 8]" @before-hide="hidePopup">
       <div class="b-select-content">
         <div class="b-select-filter">
           <b-input
@@ -33,9 +33,14 @@
           />
         </div>
         <div class="b-select-items">
-          <div class="b-select-item" v-for="(opt, index) of options" :key="index">
-            <b-checkbox v-model="value" _inselect :value="opt" size="s">{{ opt }}</b-checkbox>
+          <div class="b-select-empty" v-if="!options.length">
+            Ничего не найдено
           </div>
+          <template v-if="options.length">
+            <div class="b-select-item" v-for="(opt, index) of options" :key="index">
+              <b-checkbox v-model="value" _inselect :value="opt" size="s">{{ opt }}</b-checkbox>
+            </div>
+          </template>
         </div>
       </div>
     </q-popup-proxy>
@@ -70,10 +75,14 @@ export default {
   data: function() {
     return {
       value: [],
-      searchText: ''
+      searchText: '',
+      cacheOpt: [],
     }
   },
   methods: {
+    hidePopup() {
+      this.options = this.cacheOpt;
+    },
     handleInput() {
       this.filterFn(this.searchText)
     },
@@ -111,6 +120,7 @@ export default {
     document.removeEventListener("click", this.onClickDocument);
   },
   mounted() {
+    this.cacheOpt = this.options;
     this.$root.$on("dropdown:clickItem", this.onClickItem);
     document.addEventListener("click", this.onClickDocument);
   },
@@ -157,6 +167,13 @@ export default {
   &:hover {
     background-color: $b-base-02;
   }
+}
+.b-select-empty {
+  font-size: 13px;
+  line-height: 20px;
+  color: $b-secondary-label;
+  text-align: center;
+  padding-bottom: 6px;
 }
 .q-menu {
   border: 1px solid $b-base-04;
