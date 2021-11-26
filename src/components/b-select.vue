@@ -4,11 +4,20 @@
     icon-right="arrow-down"
     :type="buttonType"
     :size="buttonSize"
+    :_inselect="true"
+    :class="{
+      'b-select-checked': value.length
+    }"
   >
     <div class="b-select-inner">
-      {{ placeholder }}
-      <div v-if="value.length">
-        Выбрано {{ value.length }}
+      <div class="b-select-placeholder">
+        {{ placeholder }}
+      </div>
+      <div class="b-select-value" v-if="value.length && value.length === 1">
+        {{ value[0] }}
+      </div>
+      <div class="b-select-value" v-if="value.length && value.length > 1">
+        Выбрано: {{ value.length }}
       </div>
     </div>
     <q-popup-proxy ref="content" :offset="[0, 8]">
@@ -19,18 +28,13 @@
             size="xs"
             placeholder="Начните набирать имя"
             v-model="searchText"
+            @input="handleInput"
             canceled
           />
         </div>
         <div class="b-select-items">
-          <div class="b-select-item">
-            <b-checkbox v-model="value" _inselect value="Первый" size="s">Соболева Анастасия Ивановна</b-checkbox>
-          </div>
-          <div class="b-select-item">
-            <b-checkbox v-model="value" _inselect value="Второй" size="s">Соловьева Екатерина Олеговна</b-checkbox>
-          </div>
-          <div class="b-select-item">
-            <b-checkbox v-model="value" _inselect value="Третий" size="s">Сафронова Ирина Дмитриевна</b-checkbox>
+          <div class="b-select-item" v-for="(opt, index) of options" :key="index">
+            <b-checkbox v-model="value" _inselect :value="opt" size="s">{{ opt }}</b-checkbox>
           </div>
         </div>
       </div>
@@ -51,7 +55,9 @@ export default {
     BCheckbox,
   },
   props: {
+    options: Array,
     placeholder: String,
+    filterFn: Function,
     buttonSize: {
       type: String,
       default: "s",
@@ -68,6 +74,9 @@ export default {
     }
   },
   methods: {
+    handleInput() {
+      this.filterFn(this.searchText)
+    },
     hasSomeParentTheClass(element, classname) {
       if (
         element.className &&
@@ -111,12 +120,28 @@ export default {
 <style lang="scss">
 @import "../variables";
 .b-select {
+  min-width: 300px;
+  padding: 12px 16px;
 }
 .b-select-content {
   padding: 6px;
 }
 .b-select-inner {
   text-align: left;
+  font-size: 15px;
+}
+.b-select-placeholder {
+  line-height: 34px;
+}
+.b-select-checked {
+  .b-select-placeholder {
+    font-size: 11px;
+    line-height: 15px;
+  }
+  .b-select-value {
+    font-size: 13px;
+    line-height: 19px;
+  }
 }
 .b-select-filter {
   border-bottom: 1px solid $b-base-03;
@@ -137,5 +162,6 @@ export default {
   border: 1px solid $b-base-04;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
   border-radius: 8px !important;
+  min-width: 300px;
 }
 </style>

@@ -13,6 +13,7 @@
       'b-btn-s': size === 's',
       'b-btn-xs': size === 'xs',
       'b-btn-icon-only': iconOnly,
+      'b-btn-select': _inselect,
     }"
     v-on="$listeners"
     v-bind="$attrs"
@@ -58,6 +59,9 @@ export default {
     iconLeft: String,
     iconRight: String,
     iconOnly: String,
+    _inselect: { // Если кнопка внутри селекта
+      type: Boolean
+    }
   },
   methods: {
     getIconSize() {
@@ -115,6 +119,10 @@ export default {
 
   &-icon-right {
     margin-left: 0.5em;
+  }
+
+  &.b-btn-select {
+    padding: 6px 16px !important;
   }
 }
 .b-btn-l {
