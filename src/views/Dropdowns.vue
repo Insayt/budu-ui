@@ -79,9 +79,9 @@ import BDropdownItem from "../components/b-dropdown-item";
 import BInput from "../components/b-input";
 
 const cache = [
-  'Соболева Анастасия Ивановна',
-  'Соловьева Екатерина Олеговна',
-  'Сафронова Ирина Дмитриевна',
+  "Соболева Анастасия Ивановна",
+  "Соловьева Екатерина Олеговна",
+  "Сафронова Ирина Дмитриевна",
 ];
 export default {
   name: "Dropdowns",
@@ -91,10 +91,10 @@ export default {
     BSelect,
     BInput,
   },
-  data: function() {
+  data: function () {
     return {
       searchText: "",
-      options: cache
+      options: cache,
     };
   },
   methods: {
@@ -102,8 +102,10 @@ export default {
       console.log("Клик");
     },
     filter(val) {
-      this.options = cache.filter(v => v.toLowerCase().includes(val.toLowerCase()));
-    }
+      this.options = cache.filter((v) =>
+        v.toLowerCase().includes(val.toLowerCase())
+      );
+    },
   },
 };
 </script>

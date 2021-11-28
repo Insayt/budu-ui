@@ -6,7 +6,7 @@
     :size="buttonSize"
     :_inselect="true"
     :class="{
-      'b-select-checked': value.length
+      'b-select-checked': value.length,
     }"
   >
     <div class="b-select-inner">
@@ -37,8 +37,14 @@
             Ничего не найдено
           </div>
           <template v-if="options.length">
-            <div class="b-select-item" v-for="(opt, index) of options" :key="index">
-              <b-checkbox v-model="value" _inselect :value="opt" size="s">{{ opt }}</b-checkbox>
+            <div
+              class="b-select-item"
+              v-for="(opt, index) of options"
+              :key="index"
+            >
+              <b-checkbox v-model="value" _inselect :value="opt" size="s">
+                {{ opt }}
+              </b-checkbox>
             </div>
           </template>
         </div>
@@ -72,19 +78,19 @@ export default {
       default: "uncolored",
     },
   },
-  data: function() {
+  data: function () {
     return {
       value: [],
-      searchText: '',
+      searchText: "",
       cacheOpt: [],
-    }
+    };
   },
   methods: {
     hidePopup() {
       this.options = this.cacheOpt;
     },
     handleInput() {
-      this.filterFn(this.searchText)
+      this.filterFn(this.searchText);
     },
     hasSomeParentTheClass(element, classname) {
       if (

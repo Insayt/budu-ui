@@ -3,6 +3,8 @@
 ## Project publish
 ```
 npm version patch
+git push
+npm run build-lib
 npm publish
 ```
 

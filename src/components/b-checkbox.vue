@@ -4,7 +4,7 @@
     :class="{
       'b-checkbox-disabled': disabled,
       'b-checkbox-small': size === 's',
-      'b-checkbox-select': _inselect
+      'b-checkbox-select': _inselect,
     }"
   >
     <slot></slot>
@@ -60,9 +60,10 @@ export default {
       type: String,
       default: "m",
     },
-    _inselect: { // Если чекбокс внутри селекта
-      type: Boolean
-    }
+    _inselect: {
+      // Если чекбокс внутри селекта
+      type: Boolean,
+    },
   },
   computed: {
     shouldBeChecked() {

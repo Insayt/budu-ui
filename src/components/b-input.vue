@@ -56,24 +56,24 @@ export default {
       default: "m",
     },
   },
-  data: function() {
+  data: function () {
     return {
-      innerValue: ''
-    }
+      innerValue: "",
+    };
   },
   methods: {
-    handleInput(){
-      this.$emit('input', this.innerValue)
+    handleInput() {
+      this.$emit("input", this.innerValue);
     },
     clean() {
-      this.innerValue = '';
-      this.$emit('input', '');
+      this.innerValue = "";
+      this.$emit("input", "");
     },
   },
-  watch:{
+  watch: {
     value(val) {
       this.innerValue = val;
-    }
+    },
   },
 };
 </script>
@@ -160,5 +160,4 @@ export default {
     right: 10px;
   }
 }
-
 </style>

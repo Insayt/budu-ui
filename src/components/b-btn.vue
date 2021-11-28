@@ -59,9 +59,10 @@ export default {
     iconLeft: String,
     iconRight: String,
     iconOnly: String,
-    _inselect: { // Если кнопка внутри селекта
-      type: Boolean
-    }
+    _inselect: {
+      // Если кнопка внутри селекта
+      type: Boolean,
+    },
   },
   methods: {
     getIconSize() {
