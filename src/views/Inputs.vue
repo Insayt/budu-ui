@@ -106,6 +106,23 @@
       <b-input :error="'Текст ошибки'" size="xs" placeholder="Input error XS" />
     </div>
     <code class="q-mb-md" v-text="t6"></code>
+
+    <!--    <div class="b-h3 q-mb-md">Без рамок</div>-->
+    <!--    <div class="row items-center q-mb-md">-->
+    <!--      <b-input icon="search" light size="l" placeholder="Input light L" />-->
+    <!--    </div>-->
+    <!--    <div class="row items-center q-mb-md">-->
+    <!--      <b-input light size="m" placeholder="Input error M" />-->
+    <!--    </div>-->
+    <!--    <div class="row items-center q-mb-md">-->
+    <!--      <b-input light size="s" placeholder="Input error S" />-->
+    <!--    </div>-->
+    <!--    <div class="row items-center q-mb-md">-->
+    <!--      <b-input light canceled size="xs" placeholder="Input error XS">-->
+    <!--        <template slot="hint"> Текст подсказки </template>-->
+    <!--      </b-input>-->
+    <!--    </div>-->
+    <!--    <code class="q-mb-md" v-text="t6"></code>-->
   </div>
 </template>
 
@@ -128,6 +145,7 @@ export default {
         <template slot="hint"> Текст подсказки </template>
       </b-input>`,
       t6: `<b-input error="Текст ошибки" size="xs" placeholder="Input error XS" />`,
+      t7: `<b-badge size="m" color="$b-support-504">M - 32px</b-badge>`,
     };
   },
 };

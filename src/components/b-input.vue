@@ -49,6 +49,7 @@ export default {
     icon: String,
     error: String,
     canceled: Boolean,
+    light: Boolean,
     disabled: {
       default: false,
     },
@@ -71,6 +72,7 @@ export default {
         "b-input-s": this.size === "s",
         "b-input-xs": this.size === "xs",
         "b-input-left-icon": this.icon,
+        "b-input-light": this.light,
       };
       if (this.error) {
         data["b-input-has-error"] = true;
@@ -308,6 +310,16 @@ export default {
     .b-input-control {
       padding-right: 58px;
     }
+  }
+}
+
+// Без рамок
+.b-input-light {
+  .b-input-control {
+    border: none;
+    border-bottom: 1px solid $b-base-04;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
   }
 }
 
