@@ -67,6 +67,7 @@
         placeholder="Врач"
         :options="options"
         :filter-fn="filter"
+        v-model="currentSelect"
       ></b-select>
     </div>
   </div>
@@ -79,9 +80,37 @@ import BDropdownItem from "../components/b-dropdown-item";
 import BInput from "../components/b-input";
 
 const cache = [
-  "Соболева Анастасия Ивановна",
-  "Соловьева Екатерина Олеговна",
-  "Сафронова Ирина Дмитриевна",
+  {
+    label: "Google",
+    value: "Google1",
+    description: "Search engine",
+    category: "1",
+  },
+  {
+    label: "Facebook",
+    value: "Facebook2",
+    description: "Social media",
+    category: "1",
+  },
+  {
+    label: "Twitter",
+    value: "Twitter3",
+    description: "Quick updates",
+    category: "2",
+  },
+  {
+    label: "Apple",
+    value: "Apple4",
+    description: "iStuff",
+    category: "2",
+  },
+  {
+    label: "Oracle",
+    value: "Oracle",
+    disable: true,
+    description: "Databases",
+    category: "3",
+  },
 ];
 export default {
   name: "Dropdowns",
@@ -95,6 +124,7 @@ export default {
     return {
       searchText: "",
       options: cache,
+      currentSelect: [],
     };
   },
   methods: {

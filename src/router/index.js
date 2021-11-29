@@ -8,6 +8,7 @@ import Badges from "../views/Badges";
 import Checkboxes from "../views/Checkboxes";
 import Inputs from "../views/Inputs";
 import Dropdowns from "../views/Dropdowns";
+import Selects from "../views/Selects";
 
 Vue.use(VueRouter);
 
@@ -60,6 +61,11 @@ const routes = [
     path: "/dropdowns",
     name: "dropdowns",
     component: Dropdowns,
+  },
+  {
+    path: "/selects",
+    name: "selects",
+    component: Selects,
   },
   { path: "*", redirect: "/typography" },
 ];

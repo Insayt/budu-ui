@@ -42,7 +42,7 @@ export default {
   },
   props: {
     value: {
-      type: String,
+      type: [String, Object],
     },
     modelValue: {
       default: false,

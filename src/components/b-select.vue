@@ -5,15 +5,26 @@
     :type="buttonType"
     :size="buttonSize"
     :_inselect="true"
+    :_inselectHasValue="!!value.length"
     :class="{
       'b-select-checked': value.length,
     }"
+    @cancel="handleCancel"
   >
     <div class="b-select-inner">
       <div class="b-select-placeholder">
         {{ placeholder }}
       </div>
-      <div class="b-select-value" v-if="value.length && value.length === 1">
+      <div
+        class="b-select-value"
+        v-if="value.length && value.length === 1 && isOptionsObject()"
+      >
+        {{ value[0].label }}
+      </div>
+      <div
+        class="b-select-value"
+        v-if="value.length && value.length === 1 && !isOptionsObject()"
+      >
         {{ value[0] }}
       </div>
       <div class="b-select-value" v-if="value.length && value.length > 1">
@@ -36,7 +47,18 @@
           <div class="b-select-empty" v-if="!options.length">
             Ничего не найдено
           </div>
-          <template v-if="options.length">
+          <template v-if="options.length && isOptionsObject()">
+            <div
+              class="b-select-item"
+              v-for="(opt, index) of options"
+              :key="index"
+            >
+              <b-checkbox v-model="value" _inselect :value="opt" size="s">
+                {{ opt.label }}
+              </b-checkbox>
+            </div>
+          </template>
+          <template v-if="options.length && !isOptionsObject()">
             <div
               class="b-select-item"
               v-for="(opt, index) of options"
@@ -82,12 +104,19 @@ export default {
     return {
       value: [],
       searchText: "",
-      cacheOpt: [],
     };
   },
   methods: {
+    handleCancel() {
+      this.value = [];
+      this.$emit("input", []);
+    },
+    isOptionsObject() {
+      return !!(this.options.length && typeof this.options[0] === "object");
+    },
     hidePopup() {
-      this.options = this.cacheOpt;
+      this.searchText = "";
+      this.filterFn(this.searchText);
     },
     handleInput() {
       this.filterFn(this.searchText);
@@ -126,9 +155,13 @@ export default {
     document.removeEventListener("click", this.onClickDocument);
   },
   mounted() {
-    this.cacheOpt = this.options;
     this.$root.$on("dropdown:clickItem", this.onClickItem);
     document.addEventListener("click", this.onClickDocument);
+  },
+  watch: {
+    value: function (newVal) {
+      this.$emit("input", newVal);
+    },
   },
 };
 </script>

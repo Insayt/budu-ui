@@ -31,11 +31,20 @@
       <b-icon :name="iconOnly" :size="getIconSize()"></b-icon>
     </template>
     <template v-if="iconRight">
-      <b-icon
-        class="b-btn-icon-right"
-        :name="iconRight"
-        :size="getIconSize()"
-      ></b-icon>
+      <div class="b-btn-icons-right">
+        <b-icon
+          v-if="_inselectHasValue"
+          class="b-btn-icon-right"
+          name="close"
+          :size="getIconSize()"
+          @click="$emit('cancel')"
+        ></b-icon>
+        <b-icon
+          class="b-btn-icon-right"
+          :name="iconRight"
+          :size="getIconSize()"
+        ></b-icon>
+      </div>
     </template>
   </button>
 </template>
@@ -61,6 +70,10 @@ export default {
     iconOnly: String,
     _inselect: {
       // Если кнопка внутри селекта
+      type: Boolean,
+    },
+    _inselectHasValue: {
+      // Если кнопка внутри селекта и есть выбранное значение - что бы показать сброс
       type: Boolean,
     },
   },
@@ -120,6 +133,10 @@ export default {
 
   &-icon-right {
     margin-left: 0.5em;
+  }
+
+  &-icons-right {
+    height: 16px;
   }
 
   &.b-btn-select {

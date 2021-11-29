@@ -71,6 +71,9 @@
         <q-item :to="{ name: 'dropdowns' }" clickable v-ripple>
           <q-item-section>Дропдауны</q-item-section>
         </q-item>
+        <q-item :to="{ name: 'selects' }" clickable v-ripple>
+          <q-item-section>Селекты</q-item-section>
+        </q-item>
       </q-list>
     </div>
 
@@ -113,5 +116,17 @@ code {
   padding: 1em;
   display: block;
   overflow: auto;
+}
+pre {
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  border-width: 1px 4px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-left-color: #00b4ff;
+  border-right-color: #00b4ff;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  padding: 1em;
 }
 </style>
