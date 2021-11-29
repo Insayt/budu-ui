@@ -9,6 +9,7 @@ import Checkboxes from "../views/Checkboxes";
 import Inputs from "../views/Inputs";
 import Dropdowns from "../views/Dropdowns";
 import Selects from "../views/Selects";
+import Datepickers from "../views/Datepickers";
 
 Vue.use(VueRouter);
 
@@ -66,6 +67,11 @@ const routes = [
     path: "/selects",
     name: "selects",
     component: Selects,
+  },
+  {
+    path: "/datepickers",
+    name: "datepickers",
+    component: Datepickers,
   },
   { path: "*", redirect: "/typography" },
 ];
