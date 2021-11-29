@@ -65,6 +65,9 @@
         <q-item :to="{ name: 'checkboxes' }" clickable v-ripple>
           <q-item-section>Чекбоксы</q-item-section>
         </q-item>
+        <q-item :to="{ name: 'inputs' }" clickable v-ripple>
+          <q-item-section>Инпуты</q-item-section>
+        </q-item>
         <q-item :to="{ name: 'dropdowns' }" clickable v-ripple>
           <q-item-section>Дропдауны</q-item-section>
         </q-item>
