@@ -37,7 +37,7 @@
           <b-input
             icon="search"
             size="xs"
-            placeholder="Начните набирать имя"
+            :placeholder="searchPlaceholder"
             v-model="searchText"
             @input="handleInput"
             canceled
@@ -90,6 +90,7 @@ export default {
   props: {
     options: Array,
     placeholder: String,
+    searchPlaceholder: String,
     filterFn: Function,
     buttonSize: {
       type: String,
