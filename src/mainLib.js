@@ -6,6 +6,7 @@ import BDropdownItem from "./components/b-dropdown-item";
 import BBadge from "./components/b-badge";
 import BInput from "./components/b-input";
 import BSelect from "./components/b-select";
+import BDatepicker from "./components/b-datepicker";
 
 export default {
   install(Vue) {
@@ -17,5 +18,6 @@ export default {
     Vue.component("b-badge", BBadge);
     Vue.component("b-input", BInput);
     Vue.component("b-select", BSelect);
+    Vue.component("b-datepicker", BDatepicker);
   },
 };
