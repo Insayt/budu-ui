@@ -1,7 +1,8 @@
 <template>
   <b-btn
     class="b-select"
-    icon-right="arrow-down"
+    icon-right="calendar"
+    icon-right-color="rgba(60, 60, 67, 0.6)"
     :type="buttonType"
     :size="buttonSize"
     :_inselect="true"

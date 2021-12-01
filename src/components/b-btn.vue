@@ -37,11 +37,13 @@
           class="b-btn-icon-right"
           name="close"
           :size="getIconSize()"
+          :color="getIconColor()"
           @click="$emit('cancel')"
         ></b-icon>
         <b-icon
           class="b-btn-icon-right"
           :name="iconRight"
+          :color="getIconColor()"
           :size="getIconSize()"
         ></b-icon>
       </div>
@@ -67,6 +69,7 @@ export default {
     },
     iconLeft: String,
     iconRight: String,
+    iconRightColor: String,
     iconOnly: String,
     _inselect: {
       // Если кнопка внутри селекта
@@ -86,6 +89,7 @@ export default {
       return "16";
     },
     getIconColor() {
+      if (this.iconRightColor) return this.iconRightColor;
       if (this.type === "uncolored") return "#00000";
       if (
         this.type === "pale" ||
