@@ -1,38 +1,25 @@
 <template>
   <div>
     <div class="b-h1 q-mb-lg">Датапикер</div>
-    <div class="b-h3 q-mb-md">Data</div>
+    <div class="b-h3 q-mb-md">Одиночная дата</div>
     <div class="row items-center q-mb-md">
-      <b-datepicker
-        placeholder="Компания"
-        :options="options1"
-        :filter-fn="filter1"
-        v-model="currentSelect2"
-      ></b-datepicker>
+      <b-datepicker placeholder="Дата" v-model="currentSelect1" />
     </div>
     <div class="q-mb-md">
-      <b>Options:</b>
-      <pre class="q-mb-md" v-text="cache1"></pre>
+      <b>Значение модели:</b> <b-badge>{{ currentSelect1 }}</b-badge>
+    </div>
+    <div class="q-mb-md">
+      <pre class="q-mb-md" v-text="t1"></pre>
+    </div>
+    <div class="b-h3 q-mb-md">Диапазон дат</div>
+    <div class="row items-center q-mb-md">
+      <b-datepicker placeholder="Диапазон дат" range v-model="currentSelect2" />
     </div>
     <div class="q-mb-md">
       <b>Значение модели:</b> <b-badge>{{ currentSelect2 }}</b-badge>
     </div>
-
-    <div class="b-h3 q-mb-md">Options: обьекты</div>
-    <div class="row items-center q-mb-md">
-      <b-select
-        placeholder="Компания"
-        :options="options"
-        :filter-fn="filter"
-        v-model="currentSelect1"
-      ></b-select>
-    </div>
     <div class="q-mb-md">
-      <b>Options:</b>
-      <pre class="q-mb-md" v-text="cache"></pre>
-    </div>
-    <div class="q-mb-md">
-      <b>Значение модели:</b> <b-badge>{{ currentSelect1 }}</b-badge>
+      <pre class="q-mb-md" v-text="t2"></pre>
     </div>
   </div>
 </template>
@@ -72,13 +59,11 @@ const cache = [
     category: "3",
   },
 ];
-import BSelect from "../components/b-select";
 import BDatepicker from "../components/b-datepicker";
 import BBadge from "../components/b-badge";
 export default {
   name: "Datepickers",
   components: {
-    BSelect,
     BBadge,
     BDatepicker,
   },
@@ -88,10 +73,10 @@ export default {
       cache1: cache1,
       options: cache,
       options1: cache1,
-      currentSelect1: [],
-      currentSelect2: [],
-      t1: `<b-input size="xs" placeholder="Input XS" />`,
-      t2: `<b-input size="xs" icon="doctor" placeholder="Input with icon XS" />`,
+      currentSelect1: null,
+      currentSelect2: null,
+      t1: `<b-datepicker placeholder="Дата" v-model="model" />`,
+      t2: `<b-datepicker placeholder="Диапазон дат" range v-model="model" />`,
       t3: `<b-input size="xs" icon="doctor" placeholder="Input hint XS">
         <template slot="hint"> Текст подсказки </template>
       </b-input>`,

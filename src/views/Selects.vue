@@ -8,7 +8,7 @@
         :options="options1"
         :filter-fn="filter1"
         v-model="currentSelect2"
-      ></b-select>
+      />
     </div>
     <div class="q-mb-md">
       <b>Options:</b>
@@ -16,6 +16,9 @@
     </div>
     <div class="q-mb-md">
       <b>Значение модели:</b> <b-badge>{{ currentSelect2 }}</b-badge>
+    </div>
+    <div class="q-mb-md">
+      <pre class="q-mb-md" v-text="t1"></pre>
     </div>
 
     <div class="b-h3 q-mb-md">Options: обьекты</div>
@@ -88,7 +91,12 @@ export default {
       options1: cache1,
       currentSelect1: [],
       currentSelect2: [],
-      t1: `<b-input size="xs" placeholder="Input XS" />`,
+      t1: `<b-select
+  placeholder="Компания"
+  :options="options"
+  :filter-fn="filterFunction" // Функция для фильтрации вариантов выбора
+  v-model="model"
+/>`,
       t2: `<b-input size="xs" icon="doctor" placeholder="Input with icon XS" />`,
       t3: `<b-input size="xs" icon="doctor" placeholder="Input hint XS">
         <template slot="hint"> Текст подсказки </template>

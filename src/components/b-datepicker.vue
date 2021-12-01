@@ -5,43 +5,33 @@
     :type="buttonType"
     :size="buttonSize"
     :_inselect="true"
-    :_inselectHasValue="!!value.length"
+    :_inselectHasValue="isValue()"
     :class="{
-      'b-select-checked': value.length,
+      'b-select-checked': isValue(),
     }"
     @cancel="handleCancel"
   >
-    {{ date }}
     <div class="b-select-inner">
       <div class="b-select-placeholder">
         {{ placeholder }}
       </div>
-      <div
-        class="b-select-value"
-        v-if="value.length && value.length === 1 && isOptionsObject()"
-      >
-        {{ value[0].label }}
+      <div class="b-select-value" v-if="date && !isDateObject()">
+        {{ formatDate(date) }}
       </div>
       <div
         class="b-select-value"
-        v-if="value.length && value.length === 1 && !isOptionsObject()"
+        v-if="date && Object.keys(date).length && isDateObject()"
       >
-        {{ value[0] }}
-      </div>
-      <div class="b-select-value" v-if="value.length && value.length > 1">
-        Выбрано: {{ value.length }}
+        {{ formatDate(date.from) }} - {{ formatDate(date.to) }}
       </div>
     </div>
-    <q-popup-proxy
-      ref="content"
-      :offset="[0, 8]"
-      @before-hide="hidePopup"
-      @input="showPopup"
-    >
+    <q-popup-proxy ref="content" :offset="[0, 8]" @input="showPopup">
       <div class="b-select-content">
         <div class="b-calendar">
           <div class="b-calendar__nav" v-if="isPopupShow">
-            <template v-if="$refs.calendar.view === 'Calendar'">
+            <template
+              v-if="$refs.calendar && $refs.calendar.view === 'Calendar'"
+            >
               <div class="b-calendar__date">
                 <div class="b-calendar__month">{{ month }}</div>
                 <div
@@ -60,7 +50,7 @@
                 </div>
               </div>
             </template>
-            <template v-if="$refs.calendar.view === 'Years'">
+            <template v-if="$refs.calendar && $refs.calendar.view === 'Years'">
               <div class="b-calendar__date">
                 <div
                   class="b-calendar__back"
@@ -78,7 +68,7 @@
             mask="YYYY-MM-DD HH:mm"
             minimal
             flat
-            range
+            :range="range"
             @navigation="navCalendar"
           />
         </div>
@@ -100,8 +90,10 @@ export default {
   props: {
     options: Array,
     placeholder: String,
-    searchPlaceholder: String,
-    filterFn: Function,
+    range: {
+      type: Boolean,
+      default: false,
+    },
     buttonSize: {
       type: String,
       default: "s",
@@ -143,6 +135,17 @@ export default {
     },
   },
   methods: {
+    isValue() {
+      if (this.isDateObject()) {
+        return !!Object.keys(this.date).length;
+      } else {
+        return !!this.date;
+      }
+    },
+    formatDate(dt) {
+      const d = new Date(dt);
+      return d.getDate() + "." + (d.getMonth() + 1) + "." + d.getFullYear();
+    },
     navCalendar(dt) {
       this.dateText = dt;
     },
@@ -153,24 +156,17 @@ export default {
       this.$refs.calendar.offsetCalendar("month", type);
     },
     handleCancel() {
-      this.value = [];
-      this.$emit("input", []);
+      this.date = null;
+      this.$emit("input", null);
     },
-    isOptionsObject() {
-      return !!(this.options.length && typeof this.options[0] === "object");
-    },
-    hidePopup() {
-      this.searchText = "";
-      this.filterFn(this.searchText);
+    isDateObject() {
+      return typeof this.date === "object" && this.date !== null;
     },
     showPopup(e) {
       setTimeout(() => {
         // Календарь почему то не сразу инициализируется в $refs - так что небольшой костыль
         this.isPopupShow = e;
       }, 50);
-    },
-    handleInput() {
-      this.filterFn(this.searchText);
     },
     hasSomeParentTheClass(element, classname) {
       if (
@@ -218,7 +214,7 @@ export default {
     document.addEventListener("click", this.onClickDocument);
   },
   watch: {
-    value: function (newVal) {
+    date: function (newVal) {
       this.$emit("input", newVal);
     },
   },
@@ -248,6 +244,7 @@ export default {
   .b-select-placeholder {
     font-size: 11px;
     line-height: 15px;
+    color: $b-secondary-label;
   }
   .b-select-value {
     font-size: 13px;
