@@ -4,11 +4,14 @@ import router from "./router";
 import Quasar from "quasar";
 import VCalendar from "v-calendar";
 import "quasar/src/css/index.sass";
+import ru from "quasar/lang/ru";
 import "./base.scss";
 
-Vue.use(Quasar);
+Vue.use(Quasar, {
+  lang: ru,
+});
 Vue.use(VCalendar, {
-  componentPrefix: "b",
+  componentPrefix: "v",
 });
 
 Vue.config.productionTip = false;
