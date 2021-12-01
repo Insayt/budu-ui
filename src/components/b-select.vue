@@ -9,6 +9,7 @@
     :_inselectHasValue="!!value.length"
     :class="{
       'b-select-checked': value.length,
+      'b-select-disabled': disabled,
     }"
     @cancel="handleCancel"
   >
@@ -89,6 +90,7 @@ export default {
     BCheckbox,
   },
   props: {
+    disabled: Boolean,
     options: Array,
     placeholder: String,
     searchPlaceholder: String,
@@ -173,6 +175,12 @@ export default {
 .b-select {
   min-width: 300px;
   padding: 12px 16px;
+  position: relative;
+}
+.b-select-disabled {
+  opacity: 0.64;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 .b-select-content {
   padding: 6px;
@@ -183,6 +191,7 @@ export default {
 }
 .b-select-placeholder {
   line-height: 34px;
+  color: $b-secondary-label;
 }
 .b-select-checked {
   .b-select-placeholder {

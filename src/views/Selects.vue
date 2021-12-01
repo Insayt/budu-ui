@@ -37,6 +37,20 @@
     <div class="q-mb-md">
       <b>Значение модели:</b> <b-badge>{{ currentSelect1 }}</b-badge>
     </div>
+
+    <div class="b-h3 q-mb-md">Disabled</div>
+    <div class="row items-center q-mb-md">
+      <b-select
+        :disabled="true"
+        placeholder="Отключен"
+        :options="options"
+        :filter-fn="filter"
+        v-model="currentSelect1"
+      ></b-select>
+    </div>
+    <div class="q-mb-md">
+      <pre class="q-mb-md" v-text="t2"></pre>
+    </div>
   </div>
 </template>
 
@@ -97,7 +111,13 @@ export default {
   :filter-fn="filterFunction" // Функция для фильтрации вариантов выбора
   v-model="model"
 />`,
-      t2: `<b-input size="xs" icon="doctor" placeholder="Input with icon XS" />`,
+      t2: `<b-select
+  :disabled="true"
+  placeholder="Отключен"
+  :options="options"
+  :filter-fn="filter"
+  v-model="currentSelect1"
+/>`,
       t3: `<b-input size="xs" icon="doctor" placeholder="Input hint XS">
         <template slot="hint"> Текст подсказки </template>
       </b-input>`,
