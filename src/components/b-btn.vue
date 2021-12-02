@@ -14,6 +14,8 @@
       'b-btn-xs': size === 'xs',
       'b-btn-icon-only': iconOnly,
       'b-btn-select': _inselect,
+      'b-btn-select-open': _inselectOpen,
+      'b-btn-indate-open': _indateOpen,
     }"
     v-on="$listeners"
     v-bind="$attrs"
@@ -41,7 +43,7 @@
           @click="$emit('cancel')"
         ></b-icon>
         <b-icon
-          class="b-btn-icon-right"
+          class="b-btn-icon-right b-icon-last"
           :name="iconRight"
           :color="getIconColor()"
           :size="getIconSize()"
@@ -77,6 +79,14 @@ export default {
     },
     _inselectHasValue: {
       // Если кнопка внутри селекта и есть выбранное значение - что бы показать сброс
+      type: Boolean,
+    },
+    _inselectOpen: {
+      // Если кнопка внутри селекта и селект открыт
+      type: Boolean,
+    },
+    _indateOpen: {
+      // Если кнопка внутри датапикера и селект открыт
       type: Boolean,
     },
   },
@@ -136,6 +146,7 @@ export default {
   }
 
   &-icon-right {
+    transition: all 0.1s;
     margin-left: 0.5em;
   }
 
@@ -147,6 +158,19 @@ export default {
     padding: 6px 16px !important;
   }
 }
+
+.b-btn-select-open {
+  border-color: $b-base-09 !important;
+
+  .b-icon-last {
+    transform: rotate(180deg);
+  }
+}
+
+.b-btn-indate-open {
+  border-color: $b-base-09 !important;
+}
+
 .b-btn-l {
   font-size: 15px;
   padding: 18px 20px;

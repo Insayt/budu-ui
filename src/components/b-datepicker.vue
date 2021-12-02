@@ -7,6 +7,7 @@
     :size="buttonSize"
     :_inselect="true"
     :_inselectHasValue="isValue()"
+    :_indateOpen="popup"
     :class="{
       'b-select-checked': isValue(),
     }"
@@ -26,7 +27,12 @@
         {{ formatDate(date.from) }} - {{ formatDate(date.to) }}
       </div>
     </div>
-    <q-popup-proxy ref="content" :offset="[0, 8]" @input="showPopup">
+    <q-popup-proxy
+      ref="content"
+      :offset="[0, 8]"
+      @input="showPopup"
+      v-model="popup"
+    >
       <div class="b-select-content">
         <div class="b-calendar">
           <div class="b-calendar__nav" v-if="isPopupShow">
@@ -89,7 +95,7 @@ export default {
     BIcon,
   },
   props: {
-    options: Array,
+    value: [Object, String],
     placeholder: String,
     range: {
       type: Boolean,
@@ -106,10 +112,10 @@ export default {
   },
   data: function () {
     return {
-      value: [],
       searchText: "",
       date: null,
       isPopupShow: false,
+      popup: false,
       dateText: {},
       monthNames: [
         "Январь",
@@ -145,7 +151,7 @@ export default {
     },
     formatDate(dt) {
       const d = new Date(dt);
-      return d.getDate() + "." + (d.getMonth() + 1) + "." + d.getFullYear();
+      return d.toLocaleDateString();
     },
     navCalendar(dt) {
       this.dateText = dt;
@@ -217,6 +223,9 @@ export default {
   watch: {
     date: function (newVal) {
       this.$emit("input", newVal);
+    },
+    value: function (value) {
+      this.date = value;
     },
   },
 };

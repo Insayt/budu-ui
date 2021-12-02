@@ -6,9 +6,10 @@
     :type="buttonType"
     :size="buttonSize"
     :_inselect="true"
-    :_inselectHasValue="!!value.length"
+    :_inselectHasValue="!!val.length"
+    :_inselectOpen="popup"
     :class="{
-      'b-select-checked': value.length,
+      'b-select-checked': val.length,
       'b-select-disabled': disabled,
     }"
     @cancel="handleCancel"
@@ -19,21 +20,26 @@
       </div>
       <div
         class="b-select-value"
-        v-if="value.length && value.length === 1 && isOptionsObject()"
+        v-if="val.length && val.length === 1 && isOptionsObject()"
       >
-        {{ value[0].label }}
+        {{ val[0].label }}
       </div>
       <div
         class="b-select-value"
-        v-if="value.length && value.length === 1 && !isOptionsObject()"
+        v-if="val.length && val.length === 1 && !isOptionsObject()"
       >
-        {{ value[0] }}
+        {{ val[0] }}
       </div>
-      <div class="b-select-value" v-if="value.length && value.length > 1">
-        Выбрано: {{ value.length }}
+      <div class="b-select-value" v-if="val.length && val.length > 1">
+        Выбрано: {{ val.length }}
       </div>
     </div>
-    <q-popup-proxy ref="content" :offset="[0, 8]" @before-hide="hidePopup">
+    <q-popup-proxy
+      ref="content"
+      :offset="[0, 8]"
+      @before-hide="hidePopup"
+      v-model="popup"
+    >
       <div class="b-select-content">
         <div class="b-select-filter">
           <b-input
@@ -55,7 +61,7 @@
               v-for="(opt, index) of options"
               :key="index"
             >
-              <b-checkbox v-model="value" _inselect :value="opt" size="s">
+              <b-checkbox v-model="val" _inselect :value="opt" size="s">
                 {{ opt.label }}
               </b-checkbox>
             </div>
@@ -66,7 +72,7 @@
               v-for="(opt, index) of options"
               :key="index"
             >
-              <b-checkbox v-model="value" _inselect :value="opt" size="s">
+              <b-checkbox v-model="val" _inselect :value="opt" size="s">
                 {{ opt }}
               </b-checkbox>
             </div>
@@ -90,6 +96,7 @@ export default {
     BCheckbox,
   },
   props: {
+    value: Array,
     disabled: Boolean,
     options: Array,
     placeholder: String,
@@ -106,13 +113,14 @@ export default {
   },
   data: function () {
     return {
-      value: [],
+      val: [],
       searchText: "",
+      popup: false,
     };
   },
   methods: {
     handleCancel() {
-      this.value = [];
+      this.val = [];
       this.$emit("input", []);
     },
     isOptionsObject() {
@@ -163,8 +171,11 @@ export default {
     document.addEventListener("click", this.onClickDocument);
   },
   watch: {
-    value: function (newVal) {
+    val: function (newVal) {
       this.$emit("input", newVal);
+    },
+    value: function (value) {
+      this.val = value;
     },
   },
 };
@@ -184,6 +195,8 @@ export default {
 }
 .b-select-content {
   padding: 6px;
+  max-height: 350px;
+  overflow-x: hidden;
 }
 .b-select-inner {
   text-align: left;
