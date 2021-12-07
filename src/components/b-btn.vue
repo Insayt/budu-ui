@@ -23,6 +23,7 @@
     <template v-if="iconLeft">
       <b-icon
         class="b-btn-icon-left"
+        bold
         :name="iconLeft"
         :size="getIconSize()"
         :color="getIconColor()"
@@ -30,7 +31,7 @@
     </template>
     <slot></slot>
     <template v-if="iconOnly">
-      <b-icon :name="iconOnly" :size="getIconSize()"></b-icon>
+      <b-icon bold :name="iconOnly" :size="getIconSize()"></b-icon>
     </template>
     <template v-if="iconRight">
       <div class="b-btn-icons-right">
@@ -38,12 +39,14 @@
           v-if="_inselectHasValue"
           class="b-btn-icon-right"
           name="close"
+          bold
           :size="getIconSize()"
           :color="getIconColor()"
           @click="$emit('cancel')"
         ></b-icon>
         <b-icon
           class="b-btn-icon-right b-icon-last"
+          bold
           :name="iconRight"
           :color="getIconColor()"
           :size="getIconSize()"
@@ -156,6 +159,16 @@ export default {
 
   &.b-btn-select {
     padding: 6px 16px !important;
+    color: $b-primary-label;
+    background-color: transparent;
+    border-color: $b-base-05;
+    &:hover:enabled {
+      background-color: $b-base-02;
+      border-color: $b-base-05;
+    }
+    &:active:enabled {
+      border-color: $b-base-09;
+    }
   }
 }
 
@@ -214,8 +227,8 @@ export default {
   background-color: $b-primary-pale;
   border-color: $b-primary-pale;
   &:hover:enabled {
-    background-color: $b-primary-pale-hover;
-    border-color: $b-primary-pale-hover;
+    background-color: $b-primary-pale;
+    border-color: $b-primary-pale;
   }
   &:active:enabled {
     background-color: $b-primary-pale;

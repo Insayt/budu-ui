@@ -5,11 +5,21 @@
         class="b-input-icon"
         color="$b-secondary-label"
         size="16"
+        bold
         :name="icon"
       ></b-icon>
     </template>
+    <textarea
+      v-if="type === 'textarea'"
+      class="b-input-control"
+      :disabled="disabled"
+      v-model="innerValue"
+      @input="handleInput"
+      v-bind="$attrs"
+    />
     <input
-      type="text"
+      v-else
+      :type="type"
       class="b-input-control"
       :disabled="disabled"
       v-model="innerValue"
@@ -17,7 +27,7 @@
       v-bind="$attrs"
     />
     <div class="b-input-hint" v-if="hasSlotHint">
-      <b-icon name="help" color="$b-secondary-label"></b-icon>
+      <b-icon bold name="help" color="$b-secondary-label"></b-icon>
       <div class="b-input-hint-content">
         <slot name="hint"></slot>
       </div>
@@ -25,12 +35,13 @@
     <div class="b-input-error" v-if="error">
       {{ error }}
     </div>
-    <template v-if="canceled">
+    <template v-if="canceled && innerValue">
       <b-icon
         class="b-input-close"
         color="$b-secondary-label"
         name="close"
         size="16"
+        bold
         @click="clean"
       ></b-icon>
     </template>
@@ -56,6 +67,10 @@ export default {
     size: {
       type: String,
       default: "m",
+    },
+    type: {
+      type: String,
+      default: "text",
     },
   },
   data: function () {

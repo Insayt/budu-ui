@@ -1,6 +1,6 @@
 <template>
   <b-btn
-    class="b-select"
+    class="b-datepicker"
     icon-right="calendar"
     icon-right-color="rgba(60, 60, 67, 0.6)"
     :type="buttonType"
@@ -9,19 +9,19 @@
     :_inselectHasValue="isValue()"
     :_indateOpen="popup"
     :class="{
-      'b-select-checked': isValue(),
+      'b-datepicker-checked': isValue(),
     }"
     @cancel="handleCancel"
   >
-    <div class="b-select-inner">
-      <div class="b-select-placeholder">
+    <div class="b-datepicker-inner">
+      <div class="b-datepicker-placeholder">
         {{ placeholder }}
       </div>
-      <div class="b-select-value" v-if="date && !isDateObject()">
+      <div class="b-datepicker-value" v-if="date && !isDateObject()">
         {{ formatDate(date) }}
       </div>
       <div
-        class="b-select-value"
+        class="b-datepicker-value"
         v-if="date && Object.keys(date).length && isDateObject()"
       >
         {{ formatDate(date.from) }} - {{ formatDate(date.to) }}
@@ -33,7 +33,7 @@
       @input="showPopup"
       v-model="popup"
     >
-      <div class="b-select-content">
+      <div class="b-datepicker-content">
         <div class="b-calendar">
           <div class="b-calendar__nav" v-if="isPopupShow">
             <template
@@ -50,10 +50,20 @@
               </div>
               <div class="b-calendar__arrow">
                 <div class="b-calendar__left" @click="changeMonth(true)">
-                  <b-icon name="arrow-left" color="$b-link" size="24"></b-icon>
+                  <b-icon
+                    bold
+                    name="arrow-left"
+                    color="$b-link"
+                    size="24"
+                  ></b-icon>
                 </div>
                 <div class="b-calendar__right" @click="changeMonth(false)">
-                  <b-icon name="arrow-right" color="$b-link" size="24"></b-icon>
+                  <b-icon
+                    bold
+                    name="arrow-right"
+                    color="$b-link"
+                    size="24"
+                  ></b-icon>
                 </div>
               </div>
             </template>
@@ -63,7 +73,12 @@
                   class="b-calendar__back"
                   @click.stop="setCalendarView('Calendar')"
                 >
-                  <b-icon name="arrow-left" color="$b-link" size="24"></b-icon>
+                  <b-icon
+                    bold
+                    name="arrow-left"
+                    color="$b-link"
+                    size="24"
+                  ></b-icon>
                 </div>
                 <div class="b-calendar__month">Выберите год</div>
               </div>
@@ -192,8 +207,8 @@ export default {
     // popup-proxy почему то не закрывается при клике за его пределами - костыльнем :)
     onClickDocument(event) {
       if (
-        !this.hasSomeParentTheClass(event.target, "b-select") &&
-        !this.hasSomeParentTheClass(event.target, "b-select-content")
+        !this.hasSomeParentTheClass(event.target, "b-datepicker") &&
+        !this.hasSomeParentTheClass(event.target, "b-datepicker-content")
       ) {
         this.hideContent();
       }
@@ -233,40 +248,41 @@ export default {
 
 <style lang="scss">
 @import "../variables";
-.b-select {
+.b-datepicker {
   min-width: 300px;
   padding: 12px 16px;
 }
-.b-select-content {
+.b-datepicker-content {
   padding: 6px;
   .q-date__navigation {
     display: none !important;
   }
 }
-.b-select-inner {
+.b-datepicker-inner {
   text-align: left;
   font-size: 15px;
 }
-.b-select-placeholder {
+.b-datepicker-placeholder {
   line-height: 34px;
+  color: $b-secondary-label;
 }
-.b-select-checked {
-  .b-select-placeholder {
+.b-datepicker-checked {
+  .b-datepicker-placeholder {
     font-size: 11px;
     line-height: 15px;
     color: $b-secondary-label;
   }
-  .b-select-value {
+  .b-datepicker-value {
     font-size: 13px;
     line-height: 19px;
   }
 }
-.b-select-filter {
+.b-datepicker-filter {
   border-bottom: 1px solid $b-base-03;
   padding-bottom: 10px;
   margin-bottom: 6px;
 }
-.b-select-item {
+.b-datepicker-item {
   padding: 12px;
   border-radius: 6px;
   &:last-child {
@@ -276,7 +292,7 @@ export default {
     background-color: $b-base-02;
   }
 }
-.b-select-empty {
+.b-datepicker-empty {
   font-size: 13px;
   line-height: 20px;
   color: $b-secondary-label;
@@ -315,7 +331,7 @@ export default {
   }
   &__month {
     margin-right: 4px;
-    text-transform: capitalize;
+    //text-transform: capitalize;
   }
   &__year {
     color: $b-link;

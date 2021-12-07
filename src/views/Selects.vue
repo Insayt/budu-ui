@@ -55,7 +55,22 @@
 </template>
 
 <script>
-const cache1 = ["Google", "Facebook", "Twitter", "Apple", "Oracle"];
+const cache1 = [
+  "Google 123 123 123 213 123 123 123 123 12 312 3 12312 123 123 123 ",
+  "Facebook",
+  "Twitter",
+  "Apple",
+  "Oracle",
+  "Oracle",
+  "Oracle",
+  "Oracle",
+  "Oracle",
+  "Oracle",
+  "Oracle",
+  "Oracle",
+  "Oracle",
+  "Oracle",
+];
 const cache = [
   {
     label: "Google",

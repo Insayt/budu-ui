@@ -58,6 +58,7 @@
           <template v-if="options.length && isOptionsObject()">
             <div
               class="b-select-item"
+              :_inselect="true"
               v-for="(opt, index) of options"
               :key="index"
             >
@@ -69,6 +70,7 @@
           <template v-if="options.length && !isOptionsObject()">
             <div
               class="b-select-item"
+              :_inselect="true"
               v-for="(opt, index) of options"
               :key="index"
             >
@@ -196,6 +198,7 @@ export default {
 .b-select-content {
   padding: 6px;
   max-height: 350px;
+  max-width: 300px;
   overflow-x: hidden;
 }
 .b-select-inner {
@@ -214,22 +217,16 @@ export default {
   .b-select-value {
     font-size: 13px;
     line-height: 19px;
+    max-width: 210px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 .b-select-filter {
   border-bottom: 1px solid $b-base-03;
-  padding-bottom: 10px;
-  margin-bottom: 6px;
-}
-.b-select-item {
-  padding: 12px;
-  border-radius: 6px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-  &:hover {
-    background-color: $b-base-02;
-  }
+  margin: 6px 8px;
+  padding-bottom: 12px;
 }
 .b-select-empty {
   font-size: 13px;

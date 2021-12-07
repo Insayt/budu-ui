@@ -107,6 +107,26 @@
     </div>
     <code class="q-mb-md" v-text="t6"></code>
 
+    <div class="b-h3 q-mb-md">Textarea</div>
+    <div class="row items-center q-mb-md">
+      <b-input type="textarea" size="l" placeholder="Textarea L" />
+    </div>
+    <div class="row items-center q-mb-md">
+      <b-input
+        type="textarea"
+        :error="'Текст ошибки'"
+        size="m"
+        placeholder="Textarea error M"
+      />
+    </div>
+    <div class="row items-center q-mb-md">
+      <b-input :error="'Текст ошибки'" size="s" placeholder="Input error S" />
+    </div>
+    <div class="row items-center q-mb-md">
+      <b-input :error="'Текст ошибки'" size="xs" placeholder="Input error XS" />
+    </div>
+    <code class="q-mb-md" v-text="t6"></code>
+
     <!--    <div class="b-h3 q-mb-md">Без рамок</div>-->
     <!--    <div class="row items-center q-mb-md">-->
     <!--      <b-input icon="search" light size="l" placeholder="Input light L" />-->

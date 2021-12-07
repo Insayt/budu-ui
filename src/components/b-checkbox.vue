@@ -7,7 +7,9 @@
       'b-checkbox-select': _inselect,
     }"
   >
-    <slot></slot>
+    <span>
+      <slot></slot>
+    </span>
     <input
       type="checkbox"
       :checked="shouldBeChecked"
@@ -223,6 +225,22 @@ export default {
       .b-checkbox-hint-content {
         display: block;
       }
+    }
+  }
+
+  &.b-checkbox-select {
+    padding: 8px;
+    padding-left: 31px;
+    border-radius: 6px;
+    width: 100%;
+    justify-content: normal;
+    &:hover {
+      background-color: $b-base-02;
+    }
+
+    .b-checkbox-checkmark {
+      top: 10px;
+      left: 8px;
     }
   }
 }

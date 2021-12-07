@@ -19,12 +19,16 @@ export default {
     },
     size: String,
     color: String,
+    bold: Boolean,
   },
   methods: {
     getStyles() {
       const style = {
         fontSize: this.size ? this.size + "px" : "16px",
       };
+      if (this.bold) {
+        style.fontWeight = "bold";
+      }
       if (this.color) {
         if (this.getSystemColorByName(this.color)) {
           style.color = this.getSystemColorByName(this.color);
