@@ -89,6 +89,10 @@
 </template>
 
 <style lang="scss">
+@import "./assets/fonts/gerbera/stylesheet.css";
+@import "./assets/fonts/inter/stylesheet.css";
+@import "./assets/icons/style.css";
+
 body {
   font-family: Inter !important;
   font-size: 15px !important;
