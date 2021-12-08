@@ -12,6 +12,7 @@
     <textarea
       v-if="type === 'textarea'"
       class="b-input-control"
+      :class="{ 'no-custom-scroll': this.type === 'textarea' }"
       :disabled="disabled"
       v-model="innerValue"
       @input="handleInput"
@@ -88,6 +89,7 @@ export default {
         "b-input-xs": this.size === "xs",
         "b-input-left-icon": this.icon,
         "b-input-light": this.light,
+        "b-input-textarea": this.type === "textarea",
       };
       if (this.error) {
         data["b-input-has-error"] = true;
@@ -405,5 +407,12 @@ export default {
   line-height: 16px;
   color: $b-support-104;
   margin-top: 4px;
+}
+
+.b-input-textarea {
+  .b-input-control {
+    resize: none;
+    min-height: 115px;
+  }
 }
 </style>

@@ -89,6 +89,11 @@
 </template>
 
 <style lang="scss">
+body {
+  font-family: Inter !important;
+  font-size: 15px !important;
+  line-height: 20px !important;
+}
 .icon-svg {
   content: url("./assets/logo.png");
 }

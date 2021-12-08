@@ -3,12 +3,6 @@
 @import "./assets/icons/style.css";
 @import "./variables";
 
-body {
-  font-family: Inter;
-  font-size: 15px;
-  line-height: 20px;
-}
-
 // Типографика
 .b-h1 {
   font-family: Gerbera;
@@ -104,21 +98,21 @@ body {
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
-* {
+*:not(.no-custom-scroll) {
   scrollbar-width: none;
   scrollbar-color: #e6e6e6 #ffffff;
 }
 
 /* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
+*:not(.no-custom-scroll)::-webkit-scrollbar {
   width: 12px;
 }
 
-*::-webkit-scrollbar-track {
+*:not(.no-custom-scroll)::-webkit-scrollbar-track {
   background: transparent;
 }
 
-*::-webkit-scrollbar-thumb {
+*:not(.no-custom-scroll)::-webkit-scrollbar-thumb {
   background-color: #e6e6e6;
   border-radius: 10px;
   border: 3px solid #ffffff;

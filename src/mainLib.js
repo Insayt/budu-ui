@@ -7,6 +7,7 @@ import BBadge from "./components/b-badge";
 import BInput from "./components/b-input";
 import BSelect from "./components/b-select";
 import BDatepicker from "./components/b-datepicker";
+import "./base.scss";
 
 export default {
   install(Vue) {

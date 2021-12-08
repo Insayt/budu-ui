@@ -109,7 +109,7 @@
 
     <div class="b-h3 q-mb-md">Textarea</div>
     <div class="row items-center q-mb-md">
-      <b-input type="textarea" size="l" placeholder="Textarea L" />
+      <b-input class="test" type="textarea" size="l" placeholder="Textarea L" />
     </div>
     <div class="row items-center q-mb-md">
       <b-input
@@ -172,6 +172,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.test {
+  width: 500px;
+}
 .wrap {
   width: 300px;
   margin-right: 20px;
