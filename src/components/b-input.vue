@@ -42,7 +42,7 @@
         name="close"
         size="16"
         bold
-        @click="clean"
+        @click.stop="clean"
       ></b-icon>
     </template>
   </label>
