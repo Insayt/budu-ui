@@ -9,26 +9,28 @@
         :name="icon"
       ></b-icon>
     </template>
-    <textarea
-      v-if="type === 'textarea'"
-      class="b-input-control"
-      :class="{ 'no-custom-scroll': this.type === 'textarea' }"
-      :disabled="disabled"
-      :maxlength="max"
-      v-model="innerValue"
-      @input="handleInput"
-      v-bind="$attrs"
-    />
-    <input
-      v-else
-      class="b-input-control"
-      :type="type"
-      :disabled="disabled"
-      :maxlength="max"
-      v-model="innerValue"
-      @input="handleInput"
-      v-bind="$attrs"
-    />
+    <div class="b-input-wrap">
+      <textarea
+        v-if="type === 'textarea'"
+        class="b-input-control"
+        :disabled="disabled"
+        :maxlength="max"
+        v-model="innerValue"
+        @input="handleInput"
+        v-bind="$attrs"
+      />
+      <!--      :class="{ 'no-custom-scroll': this.type === 'textarea' }"-->
+      <input
+        v-else
+        class="b-input-control"
+        :type="type"
+        :disabled="disabled"
+        :maxlength="max"
+        v-model="innerValue"
+        @input="handleInput"
+        v-bind="$attrs"
+      />
+    </div>
     <div class="b-input-max" v-if="max">
       {{ innerValue.length }} / {{ max }}
     </div>
@@ -140,9 +142,8 @@ export default {
   position: relative;
 }
 
-.b-input-control {
+.b-input-wrap {
   width: 100%;
-  padding: 34px 16px;
   background-color: $b-base-01;
   border: 1px solid $b-base-05;
   box-sizing: border-box;
@@ -151,17 +152,28 @@ export default {
   line-height: 20px;
   color: $b-secondary-label;
   outline: none;
+  overflow: hidden;
 
-  &:hover {
+  &:hover .b-input-control {
     background-color: $b-base-02;
     border-color: $b-base-05;
   }
 
-  &:focus {
+  &:focus-within {
     background-color: $b-base-01;
     border-color: $b-base-09;
     color: $b-primary-label;
   }
+}
+
+.b-input-control {
+  resize: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  overflow: auto;
+  display: block;
+  padding: 34px 16px;
 }
 
 .b-input-has-error .b-input-control {

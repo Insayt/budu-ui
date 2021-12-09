@@ -18,6 +18,7 @@
       @change="updateInput"
     />
     <b-icon
+      bold
       class="b-checkbox-checkmark"
       name="check"
       color="$b-base-01"
