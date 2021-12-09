@@ -109,7 +109,13 @@
 
     <div class="b-h3 q-mb-md">Textarea</div>
     <div class="row items-center q-mb-md">
-      <b-input class="test" type="textarea" size="l" placeholder="Textarea L" />
+      <b-input
+        class="test"
+        type="textarea"
+        size="l"
+        placeholder="Textarea L"
+        :max="255"
+      />
     </div>
     <div class="row items-center q-mb-md">
       <b-input

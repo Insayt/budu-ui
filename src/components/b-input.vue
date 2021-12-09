@@ -14,19 +14,24 @@
       class="b-input-control"
       :class="{ 'no-custom-scroll': this.type === 'textarea' }"
       :disabled="disabled"
+      :maxlength="max"
       v-model="innerValue"
       @input="handleInput"
       v-bind="$attrs"
     />
     <input
       v-else
-      :type="type"
       class="b-input-control"
+      :type="type"
       :disabled="disabled"
+      :maxlength="max"
       v-model="innerValue"
       @input="handleInput"
       v-bind="$attrs"
     />
+    <div class="b-input-max" v-if="max">
+      {{ innerValue.length }} / {{ max }}
+    </div>
     <div class="b-input-hint" v-if="hasSlotHint">
       <b-icon bold name="help" color="$b-secondary-label"></b-icon>
       <div class="b-input-hint-content">
@@ -73,6 +78,7 @@ export default {
       type: String,
       default: "text",
     },
+    max: Number,
   },
   data: function () {
     return {
@@ -411,8 +417,15 @@ export default {
 
 .b-input-textarea {
   .b-input-control {
+    overflow-x: hidden;
     resize: none;
     min-height: 115px;
   }
+}
+
+.b-input-max {
+  font-size: 11px;
+  line-height: 16px;
+  color: $b-secondary-label;
 }
 </style>
