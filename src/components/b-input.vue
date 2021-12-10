@@ -1,15 +1,15 @@
 <template>
   <label class="b-input" :class="classObject">
-    <template v-if="icon">
-      <b-icon
-        class="b-input-icon"
-        color="$b-secondary-label"
-        size="16"
-        bold
-        :name="icon"
-      ></b-icon>
-    </template>
     <div class="b-input-wrap">
+      <template v-if="icon">
+        <b-icon
+          class="b-input-icon"
+          color="$b-secondary-label"
+          size="16"
+          bold
+          :name="icon"
+        ></b-icon>
+      </template>
       <textarea
         v-if="type === 'textarea'"
         class="b-input-control"
@@ -30,29 +30,29 @@
         @input="handleInput"
         v-bind="$attrs"
       />
+      <div class="b-input-hint" v-if="hasSlotHint">
+        <b-icon bold name="help" color="$b-secondary-label"></b-icon>
+        <div class="b-input-hint-content">
+          <slot name="hint"></slot>
+        </div>
+      </div>
+      <template v-if="canceled && innerValue">
+        <b-icon
+          class="b-input-close"
+          color="$b-secondary-label"
+          name="close"
+          size="16"
+          bold
+          @click.stop="clean"
+        ></b-icon>
+      </template>
     </div>
     <div class="b-input-max" v-if="max">
       {{ innerValue.length }} / {{ max }}
     </div>
-    <div class="b-input-hint" v-if="hasSlotHint">
-      <b-icon bold name="help" color="$b-secondary-label"></b-icon>
-      <div class="b-input-hint-content">
-        <slot name="hint"></slot>
-      </div>
-    </div>
     <div class="b-input-error" v-if="error">
       {{ error }}
     </div>
-    <template v-if="canceled && innerValue">
-      <b-icon
-        class="b-input-close"
-        color="$b-secondary-label"
-        name="close"
-        size="16"
-        bold
-        @click.stop="clean"
-      ></b-icon>
-    </template>
   </label>
 </template>
 
@@ -143,6 +143,7 @@ export default {
 }
 
 .b-input-wrap {
+  position: relative;
   width: 100%;
   background-color: $b-base-01;
   border: 1px solid $b-base-05;
