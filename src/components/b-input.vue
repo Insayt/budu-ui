@@ -160,7 +160,7 @@ export default {
     border-color: $b-base-05;
   }
 
-  &:focus-within .b-input-control {
+  &:focus-within {
     background-color: $b-base-01;
     border-color: $b-base-09;
     color: $b-primary-label;
@@ -440,5 +440,6 @@ export default {
   font-size: 11px;
   line-height: 16px;
   color: $b-secondary-label;
+  margin-top: 4px;
 }
 </style>
