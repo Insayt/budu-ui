@@ -128,7 +128,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../assets/styles/variables";
 .icons-table {
   width: 100%;
   display: flex;

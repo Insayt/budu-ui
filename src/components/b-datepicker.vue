@@ -247,7 +247,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../variables";
+@import "../assets/styles/variables";
 .b-datepicker {
   min-width: 300px;
   padding: 12px 16px;

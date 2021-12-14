@@ -5,7 +5,7 @@ import Quasar from "quasar";
 import VCalendar from "v-calendar";
 import "quasar/src/css/index.sass";
 import ru from "quasar/lang/ru";
-import "./base.scss";
+import "./assets/styles/base.scss";
 
 Vue.use(Quasar, {
   lang: ru,

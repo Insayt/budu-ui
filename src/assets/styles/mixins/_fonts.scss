@@ -1,116 +1,91 @@
-@import "./variables";
-
-// Типографика
-.b-h1 {
+@mixin b-h1 {
   font-family: Gerbera;
   font-size: 30px;
   line-height: 40px;
 }
 
-.b-h2 {
+@mixin b-h2 {
   font-family: Gerbera;
   font-size: 26px;
   line-height: 36px;
 }
 
-.b-h3 {
+@mixin b-h3 {
   font-family: Gerbera;
   font-size: 24px;
   line-height: 32px;
 }
 
-.b-h4 {
+@mixin b-h4 {
   font-family: Gerbera;
   font-size: 22px;
   line-height: 30px;
 }
 
-.b-h5 {
+@mixin b-h5 {
   font-family: Gerbera;
   font-size: 20px;
   line-height: 28px;
 }
 
-.b-text-l {
+@mixin b-text-l {
   font-family: Inter;
   font-size: 18px;
   line-height: 28px;
 }
 
-.b-text-lb {
+@mixin b-text-lb {
   font-family: Inter;
   font-size: 18px;
   line-height: 28px;
   font-weight: bold;
 }
 
-.b-text-m {
+@mixin b-text-m {
   font-family: Inter;
   font-size: 15px;
   line-height: 20px;
 }
 
-.b-text-mb {
+@mixin b-text-mb {
   font-family: Inter;
   font-size: 15px;
   line-height: 20px;
   font-weight: bold;
 }
 
-.b-text-s {
+@mixin b-text-s {
   font-family: Inter;
   font-size: 13px;
   line-height: 20px;
 }
 
-.b-text-sb {
+@mixin b-text-sb {
   font-family: Inter;
   font-size: 13px;
   line-height: 20px;
   font-weight: bold;
 }
 
-.b-text-xs {
+@mixin b-text-xs {
   font-family: Inter;
   font-size: 11px;
   line-height: 16px;
   font-weight: bold;
 }
 
-.b-text-xsb {
+@mixin b-text-xsb {
   font-family: Inter;
   font-size: 11px;
   line-height: 16px;
   font-weight: bold;
 }
 
-.b-text-link {
+@mixin b-text-link {
   font-family: Inter;
   color: $b-link;
   text-decoration: none;
   &:hover {
     color: $b-link-hover;
   }
-}
-
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
-*:not(.no-custom-scroll) {
-  scrollbar-width: none;
-  scrollbar-color: #e6e6e6 #ffffff;
-}
-
-/* Chrome, Edge, and Safari */
-*:not(.no-custom-scroll)::-webkit-scrollbar {
-  width: 12px;
-}
-
-*:not(.no-custom-scroll)::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*:not(.no-custom-scroll)::-webkit-scrollbar-thumb {
-  background-color: #e6e6e6;
-  border-radius: 10px;
-  border: 3px solid #ffffff;
 }

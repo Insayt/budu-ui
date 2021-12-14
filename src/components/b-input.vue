@@ -137,7 +137,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../variables";
+@import "../assets/styles/variables";
 .b-input {
   position: relative;
 }

@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../variables";
+@import "../assets/styles/variables";
 .b-dropdown {
 }
 .b-dropdown-content {
