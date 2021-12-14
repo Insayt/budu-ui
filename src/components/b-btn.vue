@@ -117,7 +117,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../assets/styles/variables";
 .b-btn {
   display: inline-flex;
   align-items: center;

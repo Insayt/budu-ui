@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../assets/styles/variables";
 .b-badge {
   display: inline-flex;
   align-items: center;

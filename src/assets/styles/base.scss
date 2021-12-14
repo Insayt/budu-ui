@@ -1,0 +1,81 @@
+@import "./variables";
+@import "./mixins/fonts";
+
+// Типографика
+.b-h1 {
+  @include b-h1;
+}
+
+.b-h2 {
+  @include b-h2;
+}
+
+.b-h3 {
+  @include b-h3;
+}
+
+.b-h4 {
+  @include b-h4;
+}
+
+.b-h5 {
+  @include b-h5;
+}
+
+.b-text-l {
+  @include b-text-l;
+}
+
+.b-text-lb {
+  @include b-text-lb;
+}
+
+.b-text-m {
+  @include b-text-m;
+}
+
+.b-text-mb {
+  @include b-text-mb;
+}
+
+.b-text-s {
+  @include b-text-s;
+}
+
+.b-text-sb {
+  @include b-text-sb;
+}
+
+.b-text-xs {
+  @include b-text-xs;
+}
+
+.b-text-xsb {
+  @include b-text-xsb;
+}
+
+.b-text-link {
+  @include b-text-link;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+*:not(.no-custom-scroll) {
+  scrollbar-width: none;
+  scrollbar-color: #e6e6e6 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*:not(.no-custom-scroll)::-webkit-scrollbar {
+  width: 12px;
+}
+
+*:not(.no-custom-scroll)::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*:not(.no-custom-scroll)::-webkit-scrollbar-thumb {
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+}

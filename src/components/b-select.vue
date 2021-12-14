@@ -184,7 +184,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../variables";
+@import "../assets/styles/variables";
 .b-select {
   min-width: 300px;
   padding: 12px 16px;

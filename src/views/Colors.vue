@@ -572,7 +572,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../variables.scss";
+@import "../assets/styles/variables.scss";
 .color {
   display: flex;
   justify-content: center;

@@ -99,7 +99,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../variables";
+@import "../assets/styles/variables";
 .b-checkbox {
   display: inline-flex;
   justify-content: center;
