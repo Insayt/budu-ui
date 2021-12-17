@@ -7,6 +7,8 @@ import BBadge from "./components/b-badge";
 import BInput from "./components/b-input";
 import BSelect from "./components/b-select";
 import BDatepicker from "./components/b-datepicker";
+import BModal from "./components/b-datepicker";
+import BAccordion from "./components/b-datepicker";
 import "./assets/styles/base.scss";
 
 export default {
@@ -20,5 +22,7 @@ export default {
     Vue.component("b-input", BInput);
     Vue.component("b-select", BSelect);
     Vue.component("b-datepicker", BDatepicker);
+    Vue.component("b-modal", BModal);
+    Vue.component("b-accordion", BAccordion);
   },
 };

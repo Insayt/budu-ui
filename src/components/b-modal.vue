@@ -4,7 +4,7 @@
     transition-hide="none"
     ref="modal"
     class="b-modal"
-    v-model="alert"
+    v-model="showModal"
     :maximized="maximized"
   >
     <div class="b-modal-content" :class="{ 'b-modal-maximized': maximized }">
@@ -43,11 +43,12 @@ export default {
     BIcon,
   },
   props: {
+    value: Boolean,
     maximized: Boolean,
   },
   data: function () {
     return {
-      alert: true,
+      showModal: true,
     };
   },
   computed: {
@@ -60,7 +61,16 @@ export default {
   },
   methods: {
     close() {
+      this.$emit("input", false);
       this.$refs.modal.hide();
+    },
+  },
+  mounted() {
+    this.showModal = this.value;
+  },
+  watch: {
+    value: function (newVal) {
+      this.showModal = newVal;
     },
   },
 };
