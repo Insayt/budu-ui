@@ -7,8 +7,8 @@ import BBadge from "./components/b-badge";
 import BInput from "./components/b-input";
 import BSelect from "./components/b-select";
 import BDatepicker from "./components/b-datepicker";
-import BModal from "./components/b-datepicker";
-import BAccordion from "./components/b-datepicker";
+import BModal from "./components/b-modal";
+import BAccordion from "./components/b-accordion";
 import "./assets/styles/base.scss";
 
 export default {
