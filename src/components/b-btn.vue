@@ -13,6 +13,7 @@
       'b-btn-s': size === 's',
       'b-btn-xs': size === 'xs',
       'b-btn-icon-only': iconOnly,
+      'b-btn-block': block,
       'b-btn-select': _inselect,
       'b-btn-select-open': _inselectOpen,
       'b-btn-indate-open': _indateOpen,
@@ -71,6 +72,9 @@ export default {
     size: {
       type: String,
       default: "s",
+    },
+    block: {
+      type: Boolean,
     },
     iconLeft: String,
     iconRight: String,
@@ -276,5 +280,10 @@ export default {
     background-color: $b-base-09-30;
     border-color: $b-base-09-20;
   }
+}
+
+.b-btn-block {
+  display: block;
+  width: 100%;
 }
 </style>

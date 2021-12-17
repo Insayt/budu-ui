@@ -77,6 +77,9 @@
         <q-item :to="{ name: 'datepickers' }" clickable v-ripple>
           <q-item-section>Датапикер</q-item-section>
         </q-item>
+        <q-item :to="{ name: 'modals' }" clickable v-ripple>
+          <q-item-section>Модальные окна</q-item-section>
+        </q-item>
       </q-list>
     </div>
 

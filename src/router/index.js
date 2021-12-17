@@ -10,6 +10,7 @@ import Inputs from "../views/Inputs";
 import Dropdowns from "../views/Dropdowns";
 import Selects from "../views/Selects";
 import Datepickers from "../views/Datepickers";
+import Modals from "../views/Modals";
 
 Vue.use(VueRouter);
 
@@ -72,6 +73,11 @@ const routes = [
     path: "/datepickers",
     name: "datepickers",
     component: Datepickers,
+  },
+  {
+    path: "/modals",
+    name: "modals",
+    component: Modals,
   },
   { path: "*", redirect: "/typography" },
 ];
