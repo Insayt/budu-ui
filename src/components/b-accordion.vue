@@ -53,6 +53,10 @@ export default {
   border-radius: 8px;
   border: 1px solid $b-base-03;
   margin-bottom: 12px;
+
+  &:hover {
+    border-color: $b-base-04;
+  }
 }
 .b-accordion-title {
   padding: 16px 24px;
