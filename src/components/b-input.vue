@@ -12,7 +12,7 @@
       </template>
       <textarea
         v-if="type === 'textarea'"
-        class="b-input-control"
+        class="b-input-control custom-scroll"
         :disabled="disabled"
         :maxlength="max"
         v-model="innerValue"

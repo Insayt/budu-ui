@@ -40,7 +40,7 @@
       @before-hide="hidePopup"
       v-model="popup"
     >
-      <div class="b-select-content">
+      <div class="b-select-content custom-scroll">
         <div class="b-select-filter">
           <b-input
             icon="search"
