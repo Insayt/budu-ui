@@ -60,21 +60,21 @@
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
-*:not(.no-custom-scroll) {
+.no-custom-scroll {
   scrollbar-width: none;
   scrollbar-color: #e6e6e6 #ffffff;
 }
 
 /* Chrome, Edge, and Safari */
-*:not(.no-custom-scroll)::-webkit-scrollbar {
+.no-custom-scroll::-webkit-scrollbar {
   width: 12px;
 }
 
-*:not(.no-custom-scroll)::-webkit-scrollbar-track {
+.no-custom-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
 
-*:not(.no-custom-scroll)::-webkit-scrollbar-thumb {
+.no-custom-scroll::-webkit-scrollbar-thumb {
   background-color: #e6e6e6;
   border-radius: 10px;
   border: 3px solid #ffffff;
