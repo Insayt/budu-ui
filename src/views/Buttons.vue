@@ -3,7 +3,7 @@
     <div class="b-h1 q-mb-lg">Кнопки</div>
     <div class="row items-center q-mb-md">
       <div class="btn-wrap">
-        <b-button @click="clickBtn('Primary')">Primary</b-button>
+        <b-button @click="clickBtn('Primary')"> Primary </b-button>
       </div>
       <div class="btn-content">
         Для основных действий. В идеале кнопка такого типа должна быть одна на
@@ -11,6 +11,20 @@
       </div>
     </div>
     <code class="q-mb-md" v-text="'<b-button>Primary</b-button>'"></code>
+    <div class="row items-center q-mb-md">
+      <div class="btn-wrap">
+        <b-button :loading="true" @click="clickBtn('Primary loading')">
+          Primary
+        </b-button>
+      </div>
+      <div class="btn-content">
+        Свойство loading отображает иконку загрузки во время запросов
+      </div>
+    </div>
+    <code
+      class="q-mb-md"
+      v-text="'<b-button :loading=\'true\' >Primary</b-button>'"
+    ></code>
     <div class="row items-center q-mb-md">
       <div class="btn-wrap">
         <b-button type="secondary" @click="clickBtn('Secondary')">

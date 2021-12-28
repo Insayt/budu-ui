@@ -153,7 +153,6 @@ export default {
   line-height: 20px;
   color: $b-secondary-label;
   outline: none;
-  overflow: hidden;
 
   &:hover .b-input-control {
     background-color: $b-base-02;
@@ -175,6 +174,7 @@ export default {
   overflow: auto;
   display: block;
   padding: 34px 16px;
+  border-radius: 12px;
 }
 
 .b-input-has-error .b-input-control {
@@ -221,6 +221,9 @@ export default {
 }
 
 .b-input-xs {
+  .b-input-wrap {
+    border-radius: 8px;
+  }
   .b-input-control {
     padding: 5px 10px;
     border-radius: 8px;

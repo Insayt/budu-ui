@@ -14,6 +14,7 @@
       'b-btn-xs': size === 'xs',
       'b-btn-icon-only': iconOnly,
       'b-btn-block': block,
+      'b-btn-loading': loading,
       'b-btn-select': _inselect,
       'b-btn-select-open': _inselectOpen,
       'b-btn-indate-open': _indateOpen,
@@ -21,39 +22,49 @@
     v-on="$listeners"
     v-bind="$attrs"
   >
-    <template v-if="iconLeft">
+    <template v-if="loading">
       <b-icon
-        class="b-btn-icon-left"
-        bold
-        :name="iconLeft"
+        class="b-btn-icon-loading-icon"
+        name="reload"
         :size="getIconSize()"
         :color="getIconColor()"
       ></b-icon>
     </template>
-    <slot></slot>
-    <template v-if="iconOnly">
-      <b-icon bold :name="iconOnly" :size="getIconSize()"></b-icon>
-    </template>
-    <template v-if="iconRight">
-      <div class="b-btn-icons-right">
+    <span class="b-btn-inner">
+      <template v-if="iconLeft">
         <b-icon
-          v-if="_inselectHasValue"
-          class="b-btn-icon-right"
-          name="close"
+          class="b-btn-icon-left"
           bold
+          :name="iconLeft"
           :size="getIconSize()"
           :color="getIconColor()"
-          @click="$emit('cancel')"
         ></b-icon>
-        <b-icon
-          class="b-btn-icon-right b-icon-last"
-          bold
-          :name="iconRight"
-          :color="getIconColor()"
-          :size="getIconSize()"
-        ></b-icon>
-      </div>
-    </template>
+      </template>
+      <slot></slot>
+      <template v-if="iconOnly">
+        <b-icon bold :name="iconOnly" :size="getIconSize()"></b-icon>
+      </template>
+      <template v-if="iconRight">
+        <div class="b-btn-icons-right">
+          <b-icon
+            v-if="_inselectHasValue"
+            class="b-btn-icon-right"
+            name="close"
+            bold
+            :size="getIconSize()"
+            :color="getIconColor()"
+            @click="$emit('cancel')"
+          ></b-icon>
+          <b-icon
+            class="b-btn-icon-right b-icon-last"
+            bold
+            :name="iconRight"
+            :color="getIconColor()"
+            :size="getIconSize()"
+          ></b-icon>
+        </div>
+      </template>
+    </span>
   </button>
 </template>
 
@@ -76,6 +87,7 @@ export default {
     block: {
       type: Boolean,
     },
+    loading: Boolean,
     iconLeft: String,
     iconRight: String,
     iconRightColor: String,
@@ -135,6 +147,7 @@ export default {
   padding: 10px 16px;
   cursor: pointer;
   outline: none;
+  position: relative;
 
   &:hover:enabled {
     background-color: $b-primary-hover;
@@ -173,6 +186,30 @@ export default {
     &:active:enabled {
       border-color: $b-base-09;
     }
+  }
+}
+
+.b-btn-loading {
+  text-align: center;
+  .b-btn-inner {
+    visibility: hidden;
+  }
+}
+
+.b-btn-icon-loading-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: translateY(-50%) translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) translateX(-50%) rotate(360deg);
   }
 }
 
