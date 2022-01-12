@@ -20,6 +20,7 @@
       'b-btn-indate-open': _indateOpen,
     }"
     v-on="$listeners"
+    :disabled="innerDisabled"
     v-bind="$attrs"
   >
     <template v-if="loading">
@@ -87,6 +88,9 @@ export default {
     block: {
       type: Boolean,
     },
+    disabled: {
+      type: Boolean,
+    },
     loading: Boolean,
     iconLeft: String,
     iconRight: String,
@@ -107,6 +111,11 @@ export default {
     _indateOpen: {
       // Если кнопка внутри датапикера и селект открыт
       type: Boolean,
+    },
+  },
+  computed: {
+    innerDisabled() {
+      return this.disabled || this.loading;
     },
   },
   methods: {
@@ -144,7 +153,6 @@ export default {
   background-color: $b-primary;
   border-radius: 12px;
   border: 1px solid $b-primary;
-  padding: 10px 16px;
   cursor: pointer;
   outline: none;
   position: relative;
@@ -175,7 +183,7 @@ export default {
   }
 
   &.b-btn-select {
-    padding: 6px 16px !important;
+    padding: 0;
     color: $b-primary-label;
     background-color: transparent;
     border-color: $b-base-05;
@@ -186,7 +194,18 @@ export default {
     &:active:enabled {
       border-color: $b-base-09;
     }
+    .b-btn-inner {
+      padding: 6px 16px !important;
+    }
   }
+}
+
+.b-btn-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
 }
 
 .b-btn-loading {
@@ -225,29 +244,33 @@ export default {
   border-color: $b-base-09 !important;
 }
 
-.b-btn-l {
+.b-btn-l .b-btn-inner {
   font-size: 15px;
   padding: 18px 20px;
 }
 
-.b-btn-m {
+.b-btn-m .b-btn-inner {
   font-size: 15px;
   padding: 14px 16px;
 }
 
-.b-btn-s {
+.b-btn-s .b-btn-inner {
   font-size: 13px;
   padding: 10px 16px;
 }
 
-.b-btn-xs {
+.b-btn-xs .b-btn-inner {
   font-size: 13px;
   padding: 6px 12px;
 }
 
 .b-btn-icon-only {
-  padding: 16px;
   border-radius: 50%;
+  padding: 0;
+
+  .b-btn-inner {
+    padding: 16px;
+  }
 }
 
 .b-btn-secondary {
@@ -322,5 +345,9 @@ export default {
 .b-btn-block {
   display: block;
   width: 100%;
+
+  .b-btn-inner {
+    display: block;
+  }
 }
 </style>

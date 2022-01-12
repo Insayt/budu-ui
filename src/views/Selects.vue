@@ -4,9 +4,8 @@
     <div class="b-h3 q-mb-md">Options: строки</div>
     <div class="row items-center q-mb-md">
       <b-select
-        placeholder="Компания"
+        placeholder="Обычный селект"
         :options="options1"
-        :filter-fn="filter1"
         v-model="currentSelect2"
       />
     </div>
@@ -24,9 +23,8 @@
     <div class="b-h3 q-mb-md">Options: обьекты</div>
     <div class="row items-center q-mb-md">
       <b-select
-        placeholder="Компания"
+        placeholder="Обычный селект"
         :options="options"
-        :filter-fn="filter"
         v-model="currentSelect1"
       ></b-select>
     </div>
@@ -50,6 +48,24 @@
     </div>
     <div class="q-mb-md">
       <pre class="q-mb-md" v-text="t2"></pre>
+    </div>
+
+    <div class="b-h3 q-mb-md">Мультиселект</div>
+
+    <div class="row items-center q-mb-md">
+      <b-select
+        multiple
+        placeholder="Мультиселект"
+        :options="options"
+        :filter-fn="filter1"
+        v-model="currentSelect3"
+      />
+    </div>
+    <div class="q-mb-md">
+      <b>Значение модели:</b> <b-badge>{{ currentSelect3 }}</b-badge>
+    </div>
+    <div class="q-mb-md">
+      <pre class="q-mb-md" v-text="t3"></pre>
     </div>
   </div>
 </template>
@@ -119,23 +135,24 @@ export default {
       options: cache,
       options1: cache1,
       currentSelect1: [],
-      currentSelect2: [],
+      currentSelect2: null,
+      currentSelect3: null,
       t1: `<b-select
-  placeholder="Компания"
+  placeholder="Обычный селект"
   :options="options"
-  :filter-fn="filterFunction" // Функция для фильтрации вариантов выбора
   v-model="model"
 />`,
       t2: `<b-select
   :disabled="true"
-  placeholder="Отключен"
-  :options="options"
-  :filter-fn="filter"
   v-model="currentSelect1"
 />`,
-      t3: `<b-input size="xs" icon="doctor" placeholder="Input hint XS">
-        <template slot="hint"> Текст подсказки </template>
-      </b-input>`,
+      t3: `<b-select
+  multiple
+  placeholder="Мультиселект"
+  :options="options1"
+  :filter-fn="filter1"
+  v-model="currentSelect3"
+/>`,
       t4: `<b-input canceled size="xs" placeholder="Input canceled XS" />`,
       t5: `<b-input canceled size="xs" placeholder="Input canceled XS">
         <template slot="hint"> Текст подсказки </template>

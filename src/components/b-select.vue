@@ -6,10 +6,10 @@
     :type="buttonType"
     :size="buttonSize"
     :_inselect="true"
-    :_inselectHasValue="!!val.length"
+    :_inselectHasValue="isChecked"
     :_inselectOpen="popup"
     :class="{
-      'b-select-checked': val.length,
+      'b-select-checked': isChecked,
       'b-select-disabled': disabled,
     }"
     @cancel="handleCancel"
@@ -18,21 +18,33 @@
       <div class="b-select-placeholder">
         {{ placeholder }}
       </div>
-      <div
-        class="b-select-value"
-        v-if="val.length && val.length === 1 && isOptionsObject()"
-      >
-        {{ val[0].label }}
-      </div>
-      <div
-        class="b-select-value"
-        v-if="val.length && val.length === 1 && !isOptionsObject()"
-      >
-        {{ val[0] }}
-      </div>
-      <div class="b-select-value" v-if="val.length && val.length > 1">
-        Выбрано: {{ val.length }}
-      </div>
+      <template v-if="multiple">
+        <div
+          class="b-select-value"
+          v-if="val.length && val.length === 1 && isOptionsObject()"
+        >
+          {{ val[0].label }}
+        </div>
+        <div
+          class="b-select-value"
+          v-if="val.length && val.length === 1 && !isOptionsObject()"
+        >
+          {{ val[0] }}
+        </div>
+        <div class="b-select-value" v-if="val.length && val.length > 1">
+          Выбрано: {{ val.length }}
+        </div>
+      </template>
+      <template v-if="!multiple">
+        <div class="b-select-value" v-if="val">
+          <template v-if="isOptionsObject()">
+            {{ val.label }}
+          </template>
+          <template v-else>
+            {{ val }}
+          </template>
+        </div>
+      </template>
     </div>
     <q-popup-proxy
       ref="content"
@@ -41,7 +53,7 @@
       v-model="popup"
     >
       <div class="b-select-content custom-scroll">
-        <div class="b-select-filter">
+        <div class="b-select-filter" v-if="filterFn">
           <b-input
             icon="search"
             size="xs"
@@ -56,28 +68,66 @@
             Ничего не найдено
           </div>
           <template v-if="options.length && isOptionsObject()">
-            <div
-              class="b-select-item"
-              :_inselect="true"
-              v-for="(opt, index) of options"
-              :key="index"
-            >
-              <b-checkbox v-model="val" _inselect :value="opt" size="s">
-                {{ opt.label }}
-              </b-checkbox>
-            </div>
+            <template v-if="!multiple">
+              <div
+                class="b-select-item"
+                :class="{ _single: !multiple }"
+                v-for="(opt, index) of options"
+                :key="index"
+              >
+                <label>
+                  {{ opt.label }}
+                  <input type="radio" :value="opt" v-model="val" />
+                  <b-icon
+                    name="check"
+                    v-if="isCurrentSingleValue(opt)"
+                  ></b-icon>
+                </label>
+              </div>
+            </template>
+            <tempalte v-if="multiple">
+              <div
+                class="b-select-item"
+                :_inselect="true"
+                v-for="(opt, index) of options"
+                :key="index"
+              >
+                <b-checkbox v-model="val" _inselect :value="opt" size="s">
+                  {{ opt.label }}
+                </b-checkbox>
+              </div>
+            </tempalte>
           </template>
           <template v-if="options.length && !isOptionsObject()">
-            <div
-              class="b-select-item"
-              :_inselect="true"
-              v-for="(opt, index) of options"
-              :key="index"
-            >
-              <b-checkbox v-model="val" _inselect :value="opt" size="s">
-                {{ opt }}
-              </b-checkbox>
-            </div>
+            <template v-if="!multiple">
+              <div
+                class="b-select-item"
+                :class="{ _single: !multiple }"
+                v-for="(opt, index) of options"
+                :key="index"
+              >
+                <label>
+                  {{ opt }}
+                  <input type="radio" :value="opt" v-model="val" />
+                  <b-icon
+                    name="check"
+                    v-if="isCurrentSingleValue(opt)"
+                  ></b-icon>
+                </label>
+              </div>
+            </template>
+            <template v-if="multiple">
+              <div
+                class="b-select-item"
+                :_inselect="true"
+                v-for="(opt, index) of options"
+                :key="index"
+              >
+                <b-checkbox v-model="val" _inselect :value="opt" size="s">
+                  {{ opt }}
+                </b-checkbox>
+              </div>
+            </template>
           </template>
         </div>
       </div>
@@ -87,6 +137,7 @@
 
 <script>
 import BBtn from "./b-btn";
+import BIcon from "./b-icon";
 import BInput from "./b-input";
 import BCheckbox from "./b-checkbox";
 
@@ -94,14 +145,16 @@ export default {
   name: "b-select",
   components: {
     BBtn,
+    BIcon,
     BInput,
     BCheckbox,
   },
   props: {
-    value: Array,
+    value: [Array, Object, String],
     disabled: Boolean,
     options: Array,
     placeholder: String,
+    multiple: Boolean,
     searchPlaceholder: String,
     filterFn: Function,
     buttonSize: {
@@ -115,14 +168,38 @@ export default {
   },
   data: function () {
     return {
-      val: [],
+      val: null,
       searchText: "",
       popup: false,
+      isMounted: false,
     };
   },
+  computed: {
+    isChecked() {
+      if (this.multiple) {
+        return !!this.val.length;
+      } else {
+        if (this.isOptionsObject() && this.val) {
+          return Object.keys(this.val).length !== 0;
+        }
+        return !!this.val;
+      }
+    },
+  },
   methods: {
+    isCurrentSingleValue(val) {
+      if (this.val === null) return false;
+      if (typeof val === "object" && val !== null) {
+        return val.value === this.val.value;
+      }
+      return this.val === val;
+    },
     handleCancel() {
-      this.val = [];
+      if (this.multiple) {
+        this.val = [];
+      } else {
+        this.val = null;
+      }
       this.$emit("input", []);
     },
     isOptionsObject() {
@@ -130,7 +207,9 @@ export default {
     },
     hidePopup() {
       this.searchText = "";
-      this.filterFn(this.searchText);
+      if (this.filterFn) {
+        this.filterFn(this.searchText);
+      }
     },
     handleInput() {
       this.filterFn(this.searchText);
@@ -168,12 +247,21 @@ export default {
     this.$root.$off("dropdown:clickItem");
     document.removeEventListener("click", this.onClickDocument);
   },
+  created() {
+    if (this.multiple) {
+      this.val = [];
+    }
+  },
   mounted() {
+    this.$nextTick(() => {
+      this.isMounted = true;
+    });
     this.$root.$on("dropdown:clickItem", this.onClickItem);
     document.addEventListener("click", this.onClickDocument);
   },
   watch: {
     val: function (newVal) {
+      if (!this.isMounted) return;
       this.$emit("input", newVal);
     },
     value: function (value) {
@@ -240,5 +328,26 @@ export default {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
   border-radius: 8px !important;
   min-width: 300px;
+}
+
+.b-select-item._single {
+  //display: none;
+  cursor: pointer;
+  font-size: 13px;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: $b-base-02;
+  }
+  input {
+    visibility: hidden;
+  }
+  label {
+    padding: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
 }
 </style>

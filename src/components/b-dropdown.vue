@@ -77,6 +77,7 @@ export default {
 <style lang="scss">
 @import "../assets/styles/variables";
 .b-dropdown {
+  padding: 0 !important;
 }
 .b-dropdown-content {
   padding: 6px;
