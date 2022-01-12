@@ -26,6 +26,7 @@
         placeholder="Обычный селект"
         :options="options"
         v-model="currentSelect1"
+        option-label="test"
       ></b-select>
     </div>
     <div class="q-mb-md">
@@ -93,24 +94,28 @@ const cache = [
     value: "Google1",
     description: "Search engine",
     category: "1",
+    test: "111",
   },
   {
     label: "Facebook",
     value: "Facebook2",
     description: "Social media",
     category: "1",
+    test: "222",
   },
   {
     label: "Twitter",
     value: "Twitter3",
     description: "Quick updates",
     category: "2",
+    test: "333",
   },
   {
     label: "Apple",
     value: "Apple4",
     description: "iStuff",
     category: "2",
+    test: "5555",
   },
   {
     label: "Oracle",
@@ -118,6 +123,7 @@ const cache = [
     disable: true,
     description: "Databases",
     category: "3",
+    test: "888",
   },
 ];
 import BSelect from "../components/b-select";

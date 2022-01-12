@@ -23,7 +23,7 @@
           class="b-select-value"
           v-if="val.length && val.length === 1 && isOptionsObject()"
         >
-          {{ val[0].label }}
+          {{ getObjectLabel(val[0]) }}
         </div>
         <div
           class="b-select-value"
@@ -38,7 +38,7 @@
       <template v-if="!multiple">
         <div class="b-select-value" v-if="val">
           <template v-if="isOptionsObject()">
-            {{ val.label }}
+            {{ getObjectLabel(val) }}
           </template>
           <template v-else>
             {{ val }}
@@ -76,7 +76,7 @@
                 :key="index"
               >
                 <label>
-                  {{ opt.label }}
+                  {{ getObjectLabel(opt) }}
                   <input type="radio" :value="opt" v-model="val" />
                   <b-icon
                     name="check"
@@ -85,7 +85,7 @@
                 </label>
               </div>
             </template>
-            <tempalte v-if="multiple">
+            <template v-if="multiple">
               <div
                 class="b-select-item"
                 :_inselect="true"
@@ -93,10 +93,10 @@
                 :key="index"
               >
                 <b-checkbox v-model="val" _inselect :value="opt" size="s">
-                  {{ opt.label }}
+                  {{ getObjectLabel(opt) }}
                 </b-checkbox>
               </div>
-            </tempalte>
+            </template>
           </template>
           <template v-if="options.length && !isOptionsObject()">
             <template v-if="!multiple">
@@ -165,6 +165,7 @@ export default {
       type: String,
       default: "uncolored",
     },
+    optionLabel: [String, Function],
   },
   data: function () {
     return {
@@ -187,6 +188,18 @@ export default {
     },
   },
   methods: {
+    getObjectLabel(val) {
+      if (this.isOptionsObject()) {
+        if (this.optionLabel && typeof this.optionLabel === "function") {
+          return this.optionLabel(val);
+        } else if (this.optionLabel && typeof this.optionLabel === "string") {
+          return val[this.optionLabel];
+        } else {
+          return val.label;
+        }
+      }
+      return val;
+    },
     isCurrentSingleValue(val) {
       if (this.val === null) return false;
       if (typeof val === "object" && val !== null) {
