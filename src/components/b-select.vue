@@ -8,6 +8,7 @@
     :_inselect="true"
     :_inselectHasValue="isChecked"
     :_inselectOpen="popup"
+    :_noReset="noReset"
     :class="{
       'b-select-checked': isChecked,
       'b-select-disabled': disabled,
@@ -166,6 +167,7 @@ export default {
       default: "uncolored",
     },
     optionLabel: [String, Function],
+    noReset: Boolean, // Если не нужна иконка сброса значения
   },
   data: function () {
     return {

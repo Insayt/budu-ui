@@ -48,7 +48,7 @@
       <template v-if="iconRight">
         <div class="b-btn-icons-right">
           <b-icon
-            v-if="_inselectHasValue"
+            v-if="_inselectHasValue && !_noReset"
             class="b-btn-icon-right"
             name="close"
             bold
@@ -112,6 +112,7 @@ export default {
       // Если кнопка внутри датапикера и селект открыт
       type: Boolean,
     },
+    _noReset: Boolean, // Если не нужна кнопка сброса в селекте
   },
   computed: {
     innerDisabled() {
