@@ -261,7 +261,9 @@ export default {
     document.removeEventListener("click", this.onClickDocument);
   },
   created() {
-    if (this.multiple) {
+    if (this.value) {
+      this.val = this.value;
+    } else if (this.multiple) {
       this.val = [];
     }
   },
