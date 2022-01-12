@@ -190,6 +190,20 @@ export default {
     },
   },
   methods: {
+    shallowEqual(object1, object2) {
+      // Проверка что обьекты имеют одинаковые поля
+      const keys1 = Object.keys(object1);
+      const keys2 = Object.keys(object2);
+      if (keys1.length !== keys2.length) {
+        return false;
+      }
+      for (let key of keys1) {
+        if (object1[key] !== object2[key]) {
+          return false;
+        }
+      }
+      return true;
+    },
     getObjectLabel(val) {
       if (this.isOptionsObject()) {
         if (this.optionLabel && typeof this.optionLabel === "function") {
@@ -205,7 +219,7 @@ export default {
     isCurrentSingleValue(val) {
       if (this.val === null) return false;
       if (typeof val === "object" && val !== null) {
-        return val.value === this.val.value;
+        return this.shallowEqual(val, this.val);
       }
       return this.val === val;
     },
