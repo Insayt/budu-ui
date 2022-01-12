@@ -26,7 +26,7 @@
         placeholder="Обычный селект"
         :options="options"
         v-model="currentSelect1"
-        option-label="name"
+        option-label="test"
       ></b-select>
     </div>
     <div class="q-mb-md">
@@ -89,12 +89,42 @@ const cache1 = [
   "Oracle",
 ];
 const cache = [
-  { inn: "7706181640", name: "Медкорп" },
-  { inn: "6316179588", name: "ИнРос-Мед" },
-  { inn: "7840093388", name: "Ренклиника" },
-  { inn: "7729674716", name: "К31" },
-  { inn: "5257201082", name: "Профиклиник" },
-  { inn: "7714996140", name: "Альтер" },
+  {
+    label: "Google",
+    value: "Google1",
+    description: "Search engine",
+    category: "1",
+    test: "111",
+  },
+  {
+    label: "Facebook",
+    value: "Facebook2",
+    description: "Social media",
+    category: "1",
+    test: "222",
+  },
+  {
+    label: "Twitter",
+    value: "Twitter3",
+    description: "Quick updates",
+    category: "2",
+    test: "333",
+  },
+  {
+    label: "Apple",
+    value: "Apple4",
+    description: "iStuff",
+    category: "2",
+    test: "5555",
+  },
+  {
+    label: "Oracle",
+    value: "Oracle5",
+    disable: true,
+    description: "Databases",
+    category: "3",
+    test: "888",
+  },
 ];
 import BSelect from "../components/b-select";
 import BBadge from "../components/b-badge";
@@ -110,7 +140,7 @@ export default {
       cache1: cache1,
       options: cache,
       options1: cache1,
-      currentSelect1: { inn: "7714996140", name: "Альтер" },
+      currentSelect1: [],
       currentSelect2: null,
       currentSelect3: null,
       t1: `<b-select

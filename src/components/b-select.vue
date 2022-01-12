@@ -208,7 +208,11 @@ export default {
       if (this.isOptionsObject()) {
         if (this.optionLabel && typeof this.optionLabel === "function") {
           return this.optionLabel(val);
-        } else if (this.optionLabel && typeof this.optionLabel === "string") {
+        } else if (
+          this.optionLabel &&
+          this.optionLabel.length &&
+          typeof this.optionLabel === "string"
+        ) {
           return val[this.optionLabel];
         } else {
           return val.label;
