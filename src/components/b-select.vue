@@ -47,92 +47,94 @@
         </div>
       </template>
     </div>
-    <q-popup-proxy
-      ref="content"
-      :offset="[0, 8]"
-      @before-hide="hidePopup"
-      v-model="popup"
-    >
-      <div class="b-select-content custom-scroll">
-        <div class="b-select-filter" v-if="filterFn">
-          <b-input
-            icon="search"
-            size="xs"
-            :placeholder="searchPlaceholder"
-            v-model="searchText"
-            @input="handleInput"
-            canceled
-          />
-        </div>
-        <div class="b-select-items">
-          <div class="b-select-empty" v-if="!options.length">
-            Ничего не найдено
+    <template v-slot:proxy>
+      <q-popup-proxy
+        ref="content"
+        :offset="[0, 8]"
+        @before-hide="hidePopup"
+        v-model="popup"
+      >
+        <div class="b-select-content custom-scroll">
+          <div class="b-select-filter" v-if="filterFn">
+            <b-input
+              icon="search"
+              size="xs"
+              :placeholder="searchPlaceholder"
+              v-model="searchText"
+              @input="handleInput"
+              canceled
+            />
           </div>
-          <template v-if="options.length && isOptionsObject()">
-            <template v-if="!multiple">
-              <div
-                class="b-select-item"
-                :class="{ _single: !multiple }"
-                v-for="(opt, index) of options"
-                :key="index"
-              >
-                <label>
-                  {{ getObjectLabel(opt) }}
-                  <input type="radio" :value="opt" v-model="val" />
-                  <b-icon
-                    name="check"
-                    v-if="isCurrentSingleValue(opt)"
-                  ></b-icon>
-                </label>
-              </div>
+          <div class="b-select-items">
+            <div class="b-select-empty" v-if="!options.length">
+              Ничего не найдено
+            </div>
+            <template v-if="options.length && isOptionsObject()">
+              <template v-if="!multiple">
+                <div
+                  class="b-select-item"
+                  :class="{ _single: !multiple }"
+                  v-for="(opt, index) of options"
+                  :key="index"
+                >
+                  <label>
+                    {{ getObjectLabel(opt) }}
+                    <input type="radio" :value="opt" v-model="val" />
+                    <b-icon
+                      name="check"
+                      v-if="isCurrentSingleValue(opt)"
+                    ></b-icon>
+                  </label>
+                </div>
+              </template>
+              <template v-if="multiple">
+                <div
+                  class="b-select-item"
+                  :_inselect="true"
+                  v-for="(opt, index) of options"
+                  :key="index"
+                >
+                  <b-checkbox v-model="val" _inselect :value="opt" size="s">
+                    {{ getObjectLabel(opt) }}
+                  </b-checkbox>
+                </div>
+              </template>
             </template>
-            <template v-if="multiple">
-              <div
-                class="b-select-item"
-                :_inselect="true"
-                v-for="(opt, index) of options"
-                :key="index"
-              >
-                <b-checkbox v-model="val" _inselect :value="opt" size="s">
-                  {{ getObjectLabel(opt) }}
-                </b-checkbox>
-              </div>
+            <template v-if="options.length && !isOptionsObject()">
+              <template v-if="!multiple">
+                <div
+                  class="b-select-item"
+                  :class="{ _single: !multiple }"
+                  v-for="(opt, index) of options"
+                  :key="index"
+                >
+                  <label>
+                    {{ opt }}
+                    <input type="radio" :value="opt" v-model="val" />
+                    <b-icon
+                      name="check"
+                      v-if="isCurrentSingleValue(opt)"
+                    ></b-icon>
+                  </label>
+                </div>
+              </template>
+              <template v-if="multiple">
+                <div
+                  class="b-select-item"
+                  :_inselect="true"
+                  v-for="(opt, index) of options"
+                  :key="index"
+                >
+                  <b-checkbox v-model="val" _inselect :value="opt" size="s">
+                    {{ opt }}
+                  </b-checkbox>
+                </div>
+              </template>
             </template>
-          </template>
-          <template v-if="options.length && !isOptionsObject()">
-            <template v-if="!multiple">
-              <div
-                class="b-select-item"
-                :class="{ _single: !multiple }"
-                v-for="(opt, index) of options"
-                :key="index"
-              >
-                <label>
-                  {{ opt }}
-                  <input type="radio" :value="opt" v-model="val" />
-                  <b-icon
-                    name="check"
-                    v-if="isCurrentSingleValue(opt)"
-                  ></b-icon>
-                </label>
-              </div>
-            </template>
-            <template v-if="multiple">
-              <div
-                class="b-select-item"
-                :_inselect="true"
-                v-for="(opt, index) of options"
-                :key="index"
-              >
-                <b-checkbox v-model="val" _inselect :value="opt" size="s">
-                  {{ opt }}
-                </b-checkbox>
-              </div>
-            </template>
-          </template>
+          </div>
         </div>
-      </div>
-    </q-popup-proxy>
+      </q-popup-proxy>
+    </template>
   </b-btn>
 </template>
 

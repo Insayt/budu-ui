@@ -23,6 +23,8 @@
     :disabled="innerDisabled"
     v-bind="$attrs"
   >
+    <!--    Этот слот нужен для корректной работы popup-proxy-->
+    <slot name="proxy"></slot>
     <template v-if="loading">
       <b-icon
         class="b-btn-icon-loading-icon"
