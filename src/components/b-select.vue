@@ -22,13 +22,13 @@
       <template v-if="multiple">
         <div
           class="b-select-value"
-          v-if="val.length && val.length === 1 && isOptionsObject()"
+          v-if="val.length && val.length === 1 && isOptionsObject"
         >
           {{ getObjectLabel(val[0]) }}
         </div>
         <div
           class="b-select-value"
-          v-if="val.length && val.length === 1 && !isOptionsObject()"
+          v-if="val.length && val.length === 1 && !isOptionsObject"
         >
           {{ val[0] }}
         </div>
@@ -38,12 +38,7 @@
       </template>
       <template v-if="!multiple">
         <div class="b-select-value" v-if="val">
-          <template v-if="isOptionsObject()">
-            {{ getObjectLabel(val) }}
-          </template>
-          <template v-else>
-            {{ val }}
-          </template>
+          {{ getObjectLabel(val) }}
         </div>
       </template>
     </div>
@@ -69,7 +64,7 @@
             <div class="b-select-empty" v-if="!options.length">
               Ничего не найдено
             </div>
-            <template v-if="options.length && isOptionsObject()">
+            <template v-if="options.length && isOptionsObject">
               <template v-if="!multiple">
                 <div
                   class="b-select-item"
@@ -100,7 +95,7 @@
                 </div>
               </template>
             </template>
-            <template v-if="options.length && !isOptionsObject()">
+            <template v-if="options.length && !isOptionsObject">
               <template v-if="!multiple">
                 <div
                   class="b-select-item"
@@ -177,6 +172,7 @@ export default {
       searchText: "",
       popup: false,
       isMounted: false,
+      isOptionsObject: false,
     };
   },
   computed: {
@@ -184,7 +180,7 @@ export default {
       if (this.multiple) {
         return !!this.val.length;
       } else {
-        if (this.isOptionsObject() && this.val) {
+        if (this.isOptionsObject && this.val) {
           return Object.keys(this.val).length !== 0;
         }
         return !!this.val;
@@ -207,7 +203,7 @@ export default {
       return true;
     },
     getObjectLabel(val) {
-      if (this.isOptionsObject()) {
+      if (this.isOptionsObject) {
         if (this.optionLabel && typeof this.optionLabel === "function") {
           return this.optionLabel(val);
         } else if (
@@ -237,8 +233,10 @@ export default {
       }
       this.$emit("input", []);
     },
-    isOptionsObject() {
-      return !!(this.options.length && typeof this.options[0] === "object");
+    setIsOptionsObject() {
+      this.isOptionsObject = !!(
+        this.options.length && typeof this.options[0] === "object"
+      );
     },
     hidePopup() {
       this.searchText = "";
@@ -288,6 +286,7 @@ export default {
     } else if (this.multiple) {
       this.val = [];
     }
+    this.setIsOptionsObject();
   },
   mounted() {
     this.$nextTick(() => {

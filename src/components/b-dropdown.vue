@@ -6,11 +6,13 @@
     :size="buttonSize"
   >
     {{ label }}
-    <q-popup-proxy ref="content" :offset="[0, 8]">
-      <div class="b-dropdown-content">
-        <slot></slot>
-      </div>
-    </q-popup-proxy>
+    <template v-slot:proxy>
+      <q-popup-proxy ref="content" :offset="[0, 8]">
+        <div class="b-dropdown-content">
+          <slot></slot>
+        </div>
+      </q-popup-proxy>
+    </template>
   </b-btn>
 </template>
 

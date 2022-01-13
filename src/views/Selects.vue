@@ -26,7 +26,7 @@
         placeholder="Обычный селект"
         :options="options"
         v-model="currentSelect1"
-        option-label="test"
+        :filter-fn="filter"
       ></b-select>
     </div>
     <div class="q-mb-md">
@@ -170,7 +170,7 @@ export default {
   methods: {
     filter(val) {
       this.options = cache.filter((v) =>
-        v.toLowerCase().includes(val.toLowerCase())
+        v.label.toLowerCase().includes(val.toLowerCase())
       );
     },
     filter1(val) {
