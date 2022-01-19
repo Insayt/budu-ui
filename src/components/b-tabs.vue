@@ -21,6 +21,6 @@ export default {
 <style scoped>
 .b-tabs {
   display: inline-flex;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.12);
 }
 </style>
