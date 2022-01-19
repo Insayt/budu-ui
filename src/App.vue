@@ -1,46 +1,4 @@
 <template>
-  <!--  <div id="app">-->
-  <!--    <q-layout-->
-  <!--      view="hHh Lpr lff"-->
-  <!--      container-->
-  <!--      style="height: 100vh"-->
-  <!--      class="shadow-2 rounded-borders"-->
-  <!--    >-->
-  <!--      <q-drawer show-if-above side="left" bordered content-class="bg-grey-3">-->
-  <!--        <q-scroll-area class="fit">-->
-  <!--          <q-list bordered separator>-->
-  <!--            <q-item>-->
-  <!--              <img src="./assets/budu-logo.svg" />-->
-  <!--            </q-item>-->
-  <!--            <q-item :to="{ name: 'typography' }" clickable v-ripple>-->
-  <!--              <q-item-section>Типографика</q-item-section>-->
-  <!--            </q-item>-->
-  <!--            <q-item :to="{ name: 'colors' }" clickable v-ripple>-->
-  <!--              <q-item-section>Цвета</q-item-section>-->
-  <!--            </q-item>-->
-  <!--            <q-item :to="{ name: 'icons' }" clickable v-ripple>-->
-  <!--              <q-item-section>Иконки</q-item-section>-->
-  <!--            </q-item>-->
-  <!--            <q-item :to="{ name: 'buttons' }" clickable v-ripple>-->
-  <!--              <q-item-section>Кнопки</q-item-section>-->
-  <!--            </q-item>-->
-  <!--            <q-item :to="{ name: 'badges' }" clickable v-ripple>-->
-  <!--              <q-item-section>Бейджи</q-item-section>-->
-  <!--            </q-item>-->
-  <!--            <q-item :to="{ name: 'checkboxes' }" clickable v-ripple>-->
-  <!--              <q-item-section>Чекбоксы</q-item-section>-->
-  <!--            </q-item>-->
-  <!--          </q-list>-->
-  <!--        </q-scroll-area>-->
-  <!--      </q-drawer>-->
-
-  <!--      <div class="container">-->
-  <!--        <div class="container__inner">-->
-  <!--          <router-view />-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </q-layout>-->
-  <!--  </div>-->
   <div id="app">
     <div class="sidebar">
       <q-list bordered separator>
@@ -79,6 +37,12 @@
         </q-item>
         <q-item :to="{ name: 'modals' }" clickable v-ripple>
           <q-item-section>Модальные окна</q-item-section>
+        </q-item>
+        <q-item :to="{ name: 'accordion' }" clickable v-ripple>
+          <q-item-section>Аккордеон</q-item-section>
+        </q-item>
+        <q-item :to="{ name: 'tabs' }" clickable v-ripple>
+          <q-item-section>Табы</q-item-section>
         </q-item>
       </q-list>
     </div>

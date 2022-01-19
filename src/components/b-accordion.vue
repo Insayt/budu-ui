@@ -71,6 +71,9 @@ export default {
   padding: 0 24px 24px 24px;
   @include b-text-m;
 }
+.b-accordion-icon {
+  transition: transform 0.2s linear;
+}
 
 .b-accordion-open .b-accordion-icon {
   transform: rotate(180deg);

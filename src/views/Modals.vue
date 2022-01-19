@@ -3,59 +3,48 @@
     <div class="b-h1 q-mb-lg">Модальные окна</div>
 
     <div class="q-mb-lg">
-      <b-button @click="onClick">Открыть попап</b-button>
+      <b-button @click="onClick">Открыть окно</b-button>
     </div>
-
-    <!--    <b-modal maximized>-->
-    <!--      <template slot="title">Заголовок попапа максимум две строки</template>-->
-    <!--      Основной текст попапа, может быть в несколько строчек-->
-    <!--      <template slot="bottom">-->
-    <!--        <b-button block class="test">Submit</b-button>-->
-    <!--        <b-button block type="pale">Cancel</b-button>-->
-    <!--      </template>-->
-    <!--    </b-modal>-->
-    {{ showModal1 }}
-    <b-accordion title="Госпитализация экстренная">
-      Проведение сложных кардиохирургических операций: <br /><br />
-
-      Экстренные кардиохирургические операции, включая необходимые медикаменты и
-      расходные материалы, проводимые в экстренных случаях по жизненным
-      показаниям, включая экстренную коронароангиографию и коронарную(баллонную)
-      ангиопластику со стентированием по жизненным показаниям при остром
-      коронарном синдроме с оплатой расходных материалов;<br /><br />
-
-      Плановые кардиохирургические вмешательства, в том числе аортокоронарное
-      шунтирование, стентирование (без оплаты стоимости стента);<br /><br />
-
-      Аорто-коронарное шунтирование в экстренных ситуациях (при угрозе жизни) с
-      оплатой расходных материалов.<br /><br />
-
-      Проведение сложных нейрохирургических операций (с применением микроскопа)
-      по плановым и экстренным показаниям (с оплатой дополнительных расходных
-      материалов в экстренных ситуациях(при угрозе жизни)).
-    </b-accordion>
-    <b-accordion title="Госпитализация экстренная">
-      Проведение сложных кардиохирургических операций: <br /><br />
-
-      Экстренные кардиохирургические операции, включая необходимые медикаменты и
-      расходные материалы, проводимые в экстренных случаях по жизненным
-      показаниям, включая экстренную коронароангиографию и коронарную(баллонную)
-      ангиопластику со стентированием по жизненным показаниям при остром
-      коронарном синдроме с оплатой расходных материалов;<br /><br />
-
-      Плановые кардиохирургические вмешательства, в том числе аортокоронарное
-      шунтирование, стентирование (без оплаты стоимости стента);<br /><br />
-
-      Аорто-коронарное шунтирование в экстренных ситуациях (при угрозе жизни) с
-      оплатой расходных материалов.<br /><br />
-
-      Проведение сложных нейрохирургических операций (с применением микроскопа)
-      по плановым и экстренным показаниям (с оплатой дополнительных расходных
-      материалов в экстренных ситуациях(при угрозе жизни)).
-    </b-accordion>
-    <b-modal v-model="showModal1">
-      123123123
+    <div class="q-mb-md">
+      <pre class="q-mb-md" v-text="t1"></pre>
+    </div>
+    <div class="q-mb-md">
+      <b>Значение модели:</b> <b-badge>{{ isShowModal }}</b-badge>
+    </div>
+    <b-modal v-model="isShowModal">
+      <div class="text-center">
+        <img src="../assets/broken-heart.svg" />
+      </div>
+      <div class="text-center b-h3 q-mb-sm">
+        Заголовок попапа максимум две строки
+      </div>
+      <div class="text-center b-text-md q-mb-lg">
+        Основной текст попапа, может быть в несколько строчек
+      </div>
+      <b-button block class="q-mb-sm">Submit</b-button>
       <b-button block type="pale">Cancel</b-button>
+    </b-modal>
+    <div class="b-h3 q-mb-md">Большой размер</div>
+    <div class="q-mb-lg">
+      <b-button @click="onClick1">Открыть большое окно</b-button>
+    </div>
+    <div class="q-mb-md">
+      <pre class="q-mb-md" v-text="t2"></pre>
+    </div>
+    <b-modal size="m" v-model="isShowModal1">
+      <div class="text-center">
+        <img src="../assets/broken-heart.svg" />
+      </div>
+      <div class="text-center b-h3 q-mb-sm">
+        Заголовок попапа максимум две строки
+      </div>
+      <div class="text-center b-text-md q-mb-lg">
+        Основной текст попапа, может быть в несколько строчек
+      </div>
+      <div class="text-center">
+        <b-button class="q-mr-sm">Submit</b-button>
+        <b-button type="pale">Cancel</b-button>
+      </div>
     </b-modal>
   </div>
 </template>
@@ -63,23 +52,41 @@
 <script>
 import BModal from "../components/b-modal";
 import BButton from "../components/b-btn";
-import BAccordion from "../components/b-accordion";
+import BBadge from "../components/b-badge";
 
 export default {
   name: "Modals",
   components: {
     BModal,
     BButton,
-    BAccordion,
+    BBadge,
   },
   data: function () {
     return {
-      showModal1: false,
+      isShowModal: false,
+      isShowModal1: false,
+      t1: `<b-modal v-model="isShowModal">
+  <div class="text-center">
+    <img src="../assets/broken-heart.svg" />
+  </div>
+  <div class="text-center b-h3 q-mb-sm">
+    Заголовок попапа максимум две строки
+  </div>
+  <div class="text-center b-text-md q-mb-lg">
+    Основной текст попапа, может быть в несколько строчек
+  </div>
+  <b-button block class="q-mb-sm">Submit</b-button>
+  <b-button block type="pale">Cancel</b-button>
+</b-modal>`,
+      t2: ` <b-modal size="m">...</b-modal>`,
     };
   },
   methods: {
     onClick() {
-      this.showModal1 = true;
+      this.isShowModal = true;
+    },
+    onClick1() {
+      this.isShowModal1 = true;
     },
   },
 };

@@ -11,6 +11,8 @@ import Dropdowns from "../views/Dropdowns";
 import Selects from "../views/Selects";
 import Datepickers from "../views/Datepickers";
 import Modals from "../views/Modals";
+import Accordion from "../views/Accordion";
+import Tabs from "../views/Tabs";
 
 Vue.use(VueRouter);
 
@@ -78,6 +80,16 @@ const routes = [
     path: "/modals",
     name: "modals",
     component: Modals,
+  },
+  {
+    path: "/accordion",
+    name: "accordion",
+    component: Accordion,
+  },
+  {
+    path: "/tabs",
+    name: "tabs",
+    component: Tabs,
   },
   { path: "*", redirect: "/typography" },
 ];

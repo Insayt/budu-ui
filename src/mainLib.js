@@ -9,6 +9,8 @@ import BSelect from "./components/b-select";
 import BDatepicker from "./components/b-datepicker";
 import BModal from "./components/b-modal";
 import BAccordion from "./components/b-accordion";
+import BTabs from "./components/b-tabs";
+import BTab from "./components/b-tab";
 import "./assets/styles/base.scss";
 
 export default {
@@ -24,5 +26,7 @@ export default {
     Vue.component("b-datepicker", BDatepicker);
     Vue.component("b-modal", BModal);
     Vue.component("b-accordion", BAccordion);
+    Vue.component("b-tabs", BTabs);
+    Vue.component("b-tab", BTab);
   },
 };

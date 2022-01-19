@@ -6,8 +6,12 @@
     class="b-modal"
     v-model="showModal"
     :maximized="maximized"
+    @hide="hideModal"
   >
-    <div class="b-modal-content" :class="{ 'b-modal-maximized': maximized }">
+    <div
+      class="b-modal-content"
+      :class="{ 'b-modal-maximized': maximized, 'b-modal-m': size === 'm' }"
+    >
       <div class="b-text-link b-modal-back" v-if="maximized" @click="close">
         <b-icon bold name="arrow-left" class="b-modal-back-icon"></b-icon>
         Назад
@@ -45,6 +49,10 @@ export default {
   props: {
     value: Boolean,
     maximized: Boolean,
+    size: {
+      type: String,
+      default: "s",
+    },
   },
   data: function () {
     return {
@@ -60,8 +68,10 @@ export default {
     },
   },
   methods: {
-    close() {
+    hideModal() {
       this.$emit("input", false);
+    },
+    close() {
       this.$refs.modal.hide();
     },
   },
@@ -84,6 +94,9 @@ export default {
   border-radius: 16px;
   padding: 32px;
   position: relative;
+}
+.b-modal-m {
+  width: 500px;
 }
 .b-modal-maximized {
   width: 100%;
