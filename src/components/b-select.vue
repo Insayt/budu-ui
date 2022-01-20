@@ -37,8 +37,8 @@
         </div>
       </template>
       <template v-if="!multiple">
-        <div class="b-select-value" v-if="val">
-          {{ getObjectLabel(val) }}
+        <div class="b-select-value">
+          <template v-if="val">{{ getObjectLabel(val) }}</template>
         </div>
       </template>
     </div>
@@ -215,8 +215,19 @@ export default {
         } else {
           return val.label;
         }
+      } else {
+        if (this.optionLabel && typeof this.optionLabel === "function") {
+          return this.optionLabel(val);
+        } else if (
+          this.optionLabel &&
+          this.optionLabel.length &&
+          typeof this.optionLabel === "string"
+        ) {
+          return val[this.optionLabel];
+        } else {
+          return val.label ? val.label : val;
+        }
       }
-      return val;
     },
     isCurrentSingleValue(val) {
       if (this.val === null) return false;

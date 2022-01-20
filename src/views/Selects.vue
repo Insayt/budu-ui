@@ -140,7 +140,7 @@ export default {
       cache1: cache1,
       options: cache,
       options1: cache1,
-      currentSelect1: [],
+      currentSelect1: null,
       currentSelect2: null,
       currentSelect3: null,
       t1: `<b-select
