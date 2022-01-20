@@ -303,6 +303,9 @@ export default {
     value: function (value) {
       this.val = value;
     },
+    options: function () {
+      this.setIsOptionsObject();
+    },
   },
 };
 </script>
