@@ -24,7 +24,7 @@
       color="$b-base-01"
     ></b-icon>
     <div class="b-checkbox-hint" v-if="hasSlotHint">
-      <b-icon name="help" color="$b-tertiary-label"></b-icon>
+      <b-icon name="help" color="$b-tertiary-label" bold></b-icon>
       <div class="b-checkbox-hint-content">
         <slot name="hint"></slot>
       </div>
