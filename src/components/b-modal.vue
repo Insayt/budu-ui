@@ -91,7 +91,7 @@ export default {
 .b-modal-content {
   width: 336px;
   background-color: $b-base-01;
-  border-radius: 16px;
+  border-radius: 16px !important;
   padding: 32px;
   position: relative;
 }

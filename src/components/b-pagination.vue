@@ -85,7 +85,7 @@ export default {
       color: $b-link !important;
 
       &:last-child {
-        margin-right: 0;
+        //margin-right: 0;
       }
 
       &.bg-primary {
@@ -125,9 +125,6 @@ export default {
   }
   .b-pagination-arrow-left {
     margin-right: 8px;
-  }
-  .b-pagination-arrow-right {
-    margin-left: 8px;
   }
 }
 </style>
