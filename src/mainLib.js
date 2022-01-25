@@ -11,6 +11,7 @@ import BModal from "./components/b-modal";
 import BAccordion from "./components/b-accordion";
 import BTabs from "./components/b-tabs";
 import BTab from "./components/b-tab";
+import BPagination from "./components/b-pagination";
 import "./assets/styles/base.scss";
 
 export default {
@@ -28,5 +29,6 @@ export default {
     Vue.component("b-accordion", BAccordion);
     Vue.component("b-tabs", BTabs);
     Vue.component("b-tab", BTab);
+    Vue.component("b-pagination", BPagination);
   },
 };

@@ -13,6 +13,7 @@ import Datepickers from "../views/Datepickers";
 import Modals from "../views/Modals";
 import Accordion from "../views/Accordion";
 import Tabs from "../views/Tabs";
+import Pagination from "../views/Pagination";
 
 Vue.use(VueRouter);
 
@@ -90,6 +91,11 @@ const routes = [
     path: "/tabs",
     name: "tabs",
     component: Tabs,
+  },
+  {
+    path: "/pagination",
+    name: "pagination",
+    component: Pagination,
   },
   { path: "*", redirect: "/typography" },
 ];

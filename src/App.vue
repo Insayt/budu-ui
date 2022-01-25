@@ -44,6 +44,9 @@
         <q-item :to="{ name: 'tabs' }" clickable v-ripple>
           <q-item-section>Табы</q-item-section>
         </q-item>
+        <q-item :to="{ name: 'pagination' }" clickable v-ripple>
+          <q-item-section>Пагинация</q-item-section>
+        </q-item>
       </q-list>
     </div>
 

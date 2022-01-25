@@ -86,7 +86,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../assets/styles/variables";
 .b-modal-content {
   width: 336px;
@@ -132,5 +132,8 @@ export default {
 }
 .b-modal-back-icon {
   margin-right: 4px;
+}
+.q-dialog__inner > div {
+  box-shadow: none !important;
 }
 </style>
