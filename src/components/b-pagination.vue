@@ -2,7 +2,7 @@
   <div class="b-pagination">
     <b-btn
       class="b-pagination-arrow b-pagination-arrow-left"
-      type="pale"
+      type="ghost"
       size="s"
       @click="clickPaginationArrow('left')"
       :disabled="value < 2"
@@ -19,7 +19,7 @@
 
     <b-btn
       class="b-pagination-arrow b-pagination-arrow-right"
-      type="pale"
+      type="ghost"
       size="s"
       @click="clickPaginationArrow('right')"
       :disabled="value >= max"
