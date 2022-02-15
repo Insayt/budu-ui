@@ -14,6 +14,7 @@ import Modals from "../views/Modals";
 import Accordion from "../views/Accordion";
 import Tabs from "../views/Tabs";
 import Pagination from "../views/Pagination";
+import Tables from "../views/Tables";
 
 Vue.use(VueRouter);
 
@@ -96,6 +97,11 @@ const routes = [
     path: "/pagination",
     name: "pagination",
     component: Pagination,
+  },
+  {
+    path: "/tables",
+    name: "tables",
+    component: Tables,
   },
   { path: "*", redirect: "/typography" },
 ];

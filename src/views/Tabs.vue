@@ -12,6 +12,17 @@
     <div class="q-mb-md">
       <b>Значение модели:</b> <b-badge>{{ currentTab }}</b-badge>
     </div>
+    <b-tabs no-border v-model="currentTab">
+      <b-tab :badge="10" label="Заголовок 1" name="tab1"></b-tab>
+      <b-tab label="Заголовок 2" name="tab2"></b-tab>
+      <b-tab label="Заголовок 3" name="tab3" :disabled="true"></b-tab>
+    </b-tabs>
+    <div class="q-mb-md">
+      <pre class="q-mb-md" v-text="t2"></pre>
+    </div>
+    <div class="q-mb-md">
+      <b>Значение модели:</b> <b-badge>{{ currentTab }}</b-badge>
+    </div>
   </div>
 </template>
 
@@ -31,6 +42,12 @@ export default {
     return {
       currentTab: "tab1",
       t1: `<b-tabs v-model="currentTab">
+  <b-tab :badge="10" label="Заголовок 1" name="tab1"></b-tab>
+  <b-tab label="Заголовок 2" name="tab2"></b-tab>
+  <b-tab label="Заголовок 3" name="tab3" :disabled="true"></b-tab>
+</b-tabs>
+`,
+      t2: `<b-tabs no-border v-model="currentTab">
   <b-tab :badge="10" label="Заголовок 1" name="tab1"></b-tab>
   <b-tab label="Заголовок 2" name="tab2"></b-tab>
   <b-tab label="Заголовок 3" name="tab3" :disabled="true"></b-tab>

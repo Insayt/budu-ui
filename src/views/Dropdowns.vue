@@ -26,6 +26,19 @@
     <div class="q-mb-md">
       <pre class="q-mb-md" v-text="t2"></pre>
     </div>
+
+    <div class="b-h3 q-mb-md">Кастомизация кнопки</div>
+    <div class="q-mb-lg">
+      <b-dropdown button-type="uncolored" icon="more">
+        <b-dropdown-item @click="onClick">
+          Некий текст для дропдауна2
+        </b-dropdown-item>
+        <b-dropdown-item> Некий текст для дропдауна </b-dropdown-item>
+      </b-dropdown>
+    </div>
+    <div class="q-mb-md">
+      <pre class="q-mb-md" v-text="t2"></pre>
+    </div>
     //TODO: Подумать над функциональностью компонента b-dropdown-item
   </div>
 </template>

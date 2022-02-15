@@ -1,11 +1,13 @@
 <template>
   <b-btn
     class="b-dropdown"
-    icon-right="arrow-down"
+    :icon-right="icon"
     :type="buttonType"
     :size="buttonSize"
   >
-    {{ label }}
+    <template v-if="label">
+      {{ label }}
+    </template>
     <template v-slot:proxy>
       <q-popup-proxy ref="content" :offset="[0, 8]">
         <div class="b-dropdown-content">
@@ -33,6 +35,10 @@ export default {
     buttonType: {
       type: String,
       default: "primary",
+    },
+    icon: {
+      type: String,
+      default: "arrow-down",
     },
   },
   methods: {

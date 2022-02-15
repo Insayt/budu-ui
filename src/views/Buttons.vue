@@ -10,7 +10,7 @@
         странице или в блоке.
       </div>
     </div>
-    <code class="q-mb-md" v-text="'<b-button>Primary</b-button>'"></code>
+    <code class="q-mb-md" v-text="'<b-btn>Primary</b-btn>'"></code>
     <div class="row items-center q-mb-md">
       <div class="btn-wrap">
         <b-button :loading="true" @click="clickBtn('Primary loading')">
@@ -23,7 +23,7 @@
     </div>
     <code
       class="q-mb-md"
-      v-text="'<b-button :loading=\'true\' >Primary</b-button>'"
+      v-text="'<b-btn :loading=\'true\' >Primary</b-btn>'"
     ></code>
     <div class="row items-center q-mb-md">
       <div class="btn-wrap">
@@ -161,18 +161,18 @@ export default {
   },
   data: function () {
     return {
-      t1: `<b-button type="secondary">Secondary</b-button>`,
-      t2: `<b-button type="pale">Pale</b-button>`,
-      t3: `<b-button type="ghost">Ghost</b-button>`,
-      t4: `<b-button type="outline">Outline</b-button>`,
-      t5: `<b-button type="uncolored">Uncolored</b-button>`,
-      t6: `<b-button size="l">Primary</b-button>`,
-      t7: `<b-button size="m">Button M</b-button>`,
-      t8: `<b-button size="s">Button S</b-button>или просто<b-button>Button S</b-button>`,
-      t9: `<b-button size="xs">Button XS</b-button>`,
-      t10: ` <b-button icon-left="calendar">Button</b-button>`,
-      t11: ` <b-button icon-right="arrow-down">Button</b-button>`,
-      t12: `<b-button icon-only="calendar"></b-button>`,
+      t1: `<b-btn type="secondary">Secondary</b-btn>`,
+      t2: `<b-btn type="pale">Pale</b-btn>`,
+      t3: `<b-btn type="ghost">Ghost</b-btn>`,
+      t4: `<b-btn type="outline">Outline</b-btn>`,
+      t5: `<b-btn type="uncolored">Uncolored</b-btn>`,
+      t6: `<b-btn size="l">Primary</b-btn>`,
+      t7: `<b-btn size="m">Button M</b-btn>`,
+      t8: `<b-btn size="s">Button S</b-btn>или просто<b-button>Button S</b-button>`,
+      t9: `<b-btn size="xs">Button XS</b-btn>`,
+      t10: ` <b-btn icon-left="calendar">Button</b-btn>`,
+      t11: ` <b-btn icon-right="arrow-down">Button</b-btn>`,
+      t12: `<b-btn icon-only="calendar"></b-btn>`,
     };
   },
   methods: {
