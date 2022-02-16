@@ -18,6 +18,7 @@
       'b-btn-select': _inselect,
       'b-btn-select-open': _inselectOpen,
       'b-btn-indate-open': _indateOpen,
+      'b-btn-dropdown-icon': _dropdownIconOnly,
     }"
     v-on="$listeners"
     :disabled="innerDisabled"
@@ -112,6 +113,10 @@ export default {
     },
     _indateOpen: {
       // Если кнопка внутри датапикера и селект открыт
+      type: Boolean,
+    },
+    _dropdownIconOnly: {
+      // Если кнопка внутри дропдауна с одной иконкой
       type: Boolean,
     },
     _noReset: Boolean, // Если не нужна кнопка сброса в селекте
@@ -351,6 +356,19 @@ export default {
 
   .b-btn-inner {
     display: block;
+  }
+}
+
+.b-btn-dropdown-icon {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+
+  .b-btn-inner {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

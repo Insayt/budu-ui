@@ -1,10 +1,14 @@
 <template>
   <b-btn
     class="b-dropdown"
-    :icon-right="icon"
+    :icon-right="iconRight"
     :type="buttonType"
     :size="buttonSize"
+    :_dropdownIconOnly="!!iconOnly"
   >
+    <template v-if="iconOnly">
+      <b-icon :name="iconOnly" size="16" color="#000000"></b-icon>
+    </template>
     <template v-if="label">
       {{ label }}
     </template>
@@ -20,11 +24,13 @@
 
 <script>
 import BBtn from "./b-btn";
+import BIcon from "./b-icon";
 
 export default {
   name: "b-dropdown",
   components: {
     BBtn,
+    BIcon,
   },
   props: {
     label: String,
@@ -39,6 +45,15 @@ export default {
     icon: {
       type: String,
       default: "arrow-down",
+    },
+    iconOnly: {
+      type: String,
+    },
+  },
+  computed: {
+    iconRight() {
+      if (this.iconOnly) return false;
+      return this.icon;
     },
   },
   methods: {
