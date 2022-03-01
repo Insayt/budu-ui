@@ -8,6 +8,9 @@
         <q-item :to="{ name: 'typography' }" clickable v-ripple>
           <q-item-section>Типографика</q-item-section>
         </q-item>
+        <q-item :to="{ name: 'boxes' }" clickable v-ripple>
+          <q-item-section>Boxes</q-item-section>
+        </q-item>
         <q-item :to="{ name: 'colors' }" clickable v-ripple>
           <q-item-section>Цвета</q-item-section>
         </q-item>
