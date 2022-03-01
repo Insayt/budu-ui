@@ -3,13 +3,14 @@
     class="b-avatar"
     :class="[`b-avatar-${size}`, {'--inverted': inverted}]"
     :style="avatarStyle">
-    <span v-if="text">
+    <span v-if="text && !url">
       {{ text }}
     </span>
     <b-icon
-      v-if="icon"
+      v-if="(!text && !url)"
       class="b-avatar-icon"
       name="user"
+      :color="iconColor"
       :size="currentTheme.iconSize" />
   </div>
 </template>
@@ -30,13 +31,19 @@ export default {
       type: String,
       default: "s",
     },
-    icon: Boolean,
+    url: {
+      type: String,
+      default: null,
+    },
     text: {
       type: String,
       default: null,
     },
   },
   computed: {
+    iconColor() {
+      return this.inverted ? '$b-secondary-label-inverse' : '$b-secondary-label';
+    },
     avatarStyle() {
       const style = {
         height: this.currentTheme.height,
@@ -46,6 +53,9 @@ export default {
       }
       if (this.size === 'xl') {
         style.fontWeight = '700'
+      }
+      if (this.url) {
+        style.backgroundImage = `url('${this.url}')`;
       }
       return style
     },
@@ -107,8 +117,13 @@ export default {
   position: relative;
   color: $b-secondary-label;
   font-weight: 400;
+  background: {
+    size: contain;
+    position: center;
+    repeat: no-repeat;
+  }
   &.--inverted {
-    background: $b-night-base-02;
+    background-color: $b-night-base-02;
     color: $b-secondary-label-inverse;
   }
 }
