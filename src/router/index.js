@@ -34,6 +34,11 @@ const routes = [
     component: Typography,
   },
   {
+    path: "/avatars",
+    name: "avatars",
+    component: () => import("../views/Avatars.vue"),
+  },
+  {
     path: "/colors",
     name: "colors",
     component: Colors,

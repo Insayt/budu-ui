@@ -1,6 +1,24 @@
 <template>
   <div>
-    <b-table :columns="columns" :items="items"> </b-table>
+    <b-table :columns="columns" :items="items">
+      <caption slot="caption">
+        Table
+      </caption>
+      <tr
+        slot="tbody"
+        v-for="(item, index) in items"
+        :key="`row_${index}`"
+        class="b-table__row"
+        :class="`row_${index}`">
+        <td
+          v-for="(column, index) in columns"
+          :key="`td_${index}_${column.key}`"
+          class="b-table__row-td"
+          :class="`td_${index}_${column.key}`">
+          {{ item[column.key] }} #
+        </td>
+      </tr>
+    </b-table>
   </div>
 </template>
 
@@ -14,7 +32,7 @@ export default {
   data() {
     return {
       columns: [
-        { key: "last_name", label: "Фалимия", sortable: true },
+        { key: "last_name", label: "Фамилия", sortable: true },
         { key: "first_name", label: "Имя", sortable: true },
         { key: "age", label: "Возраст", sortable: true },
         { key: "isActive", label: "Активный", sortable: false },

@@ -11,12 +11,14 @@ import BModal from "./components/b-modal";
 import BAccordion from "./components/b-accordion";
 import BTabs from "./components/b-tabs";
 import BTab from "./components/b-tab";
+import BAvatar from "./components/b-avatar";
 import BPagination from "./components/b-pagination";
 import "./assets/styles/base.scss";
 
 export default {
   install(Vue) {
     Vue.component("b-icon", BIcon);
+    Vue.component("b-avatar", BAvatar);
     Vue.component("b-btn", BBtn);
     Vue.component("b-checkbox", BCheckbox);
     Vue.component("b-dropdown", BDropdown);
