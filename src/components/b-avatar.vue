@@ -24,16 +24,25 @@ export default {
     BIcon,
   },
   props: {
-    inverted: Boolean,
-    isOnline: Boolean,
     circle: Boolean,
-    size: {
-      type: String,
-      default: "s",
-    },
+    inverted: Boolean,
     url: {
       type: String,
       default: null,
+    },
+    size: {
+      type: String,
+      default: "s",
+      validator(value) {
+        return ['xl', 'l', 'm', 's', 'xs'].includes(value)
+      }
+    },
+    status: {
+      type: String,
+      default: null,
+      validator(value) {
+        return ['online', 'offline'].includes(value)
+      }
     },
     text: {
       type: String,
