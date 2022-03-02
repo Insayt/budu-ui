@@ -20,5 +20,9 @@ export default {
   padding: 6px 8px;
   font-size: 15px;
   line-height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 </style>

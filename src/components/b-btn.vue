@@ -88,6 +88,9 @@ export default {
     size: {
       type: String,
       default: "s",
+      validator(value) {
+        return ['l', 'm', 's', 'xs'].includes(value)
+      }
     },
     block: {
       type: Boolean,
@@ -271,9 +274,10 @@ export default {
 
 
 .b-btn-xs {
+  border-radius: 8px;
   &.--iconLeft {
     .b-btn-inner {
-      padding: 6px 10px 6px 12px;
+      padding: 5px 10px 5px 12px;
     }
   }
   .b-btn-inner {
@@ -370,12 +374,9 @@ export default {
 }
 
 .b-btn-dropdown-icon {
-  width: 32px !important;
-  height: 32px !important;
   border-radius: 8px !important;
 
   .b-btn-inner {
-    padding: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;

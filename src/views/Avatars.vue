@@ -60,7 +60,7 @@
         <b-avatar size="s" text="АБ" />
       </div>
       <div class="avatar-item">
-        <b-avatar size="xs" circle text="АБ" />
+        <b-avatar size="xs" text="АБ" />
       </div>
     </div>
     <div class="b-h3 q-mb-md">Options: inverted</div>

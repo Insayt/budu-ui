@@ -12,6 +12,9 @@
       name="user"
       :color="iconColor"
       :size="currentTheme.iconSize" />
+      <span
+        class="b-avatar__status"
+        :class="`--${status}`" />
   </div>
 </template>
 <script>
@@ -39,7 +42,7 @@ export default {
     },
     status: {
       type: String,
-      default: null,
+      default: 'offline',
       validator(value) {
         return ['online', 'offline'].includes(value)
       }
@@ -58,7 +61,6 @@ export default {
         height: this.currentTheme.height,
         width: this.currentTheme.width,
         borderRadius: this.circle ? '50%' : this.currentTheme.borderRadius,
-        fontSize: this.currentTheme.fontSize,
       }
       if (this.size === 'xl') {
         style.fontWeight = '700'
@@ -75,35 +77,30 @@ export default {
           width: '64px',
           borderRadius: '20px',
           iconSize: '20',
-          fontSize: '22px',
         },
         l: {
           height: '44px',
           width: '44px',
           borderRadius: '12px',
           iconSize: '20',
-          fontSize: '15px',
         },
         m: {
           height: '40px',
           width: '40px',
           borderRadius: '12px',
           iconSize: '20',
-          fontSize: '15px',
         },
         s: {
           height: '32px',
           width: '32px',
           borderRadius: '8px',
           iconSize: '16',
-          fontSize: '13px',
         },
         xs: {
           height: '24px',
           width: '24px',
           borderRadius: '8px',
           iconSize: '16',
-          fontSize: '11px',
         },
       }
       return sizesMap[this.size];
@@ -117,6 +114,7 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/styles/variables";
+@import "../assets/styles/mixins/fonts";
 .b-avatar {
   background: $b-base-02;
   display: flex;
@@ -130,6 +128,51 @@ export default {
     size: contain;
     position: center;
     repeat: no-repeat;
+  }
+  &-xl{
+    @include b-h4;
+  }
+  &-l{
+    @include b-text-m;
+  }
+  &-m{
+    @include b-text-m;
+  }
+  &-s{
+    @include b-text-s;
+  }
+  &-xs{
+    @include b-text-xs;
+  }
+  &__status {
+    position: absolute;
+    bottom: -2px;
+    right: -1px;
+    z-index: 3;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: $b-base-01;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    &::before{
+      content: '';
+      position: absolute;
+      background-color: $b-tertiary-label;
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+    }
+    &.--online {
+      &::before{
+        background-color: $b-support-302;
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+      }
+    }
   }
   &.--inverted {
     background-color: $b-night-base-02;

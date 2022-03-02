@@ -6,9 +6,11 @@
     :size="buttonSize"
     :_dropdownIconOnly="!!iconOnly"
   >
-    <template v-if="iconOnly">
-      <b-icon :name="iconOnly" size="16" color="#000000"></b-icon>
-    </template>
+    <b-icon
+      v-if="iconOnly"
+      :name="iconOnly"
+      :size="iconSize"
+      color="#000000" />
     <template v-if="label">
       {{ label }}
     </template>
@@ -37,6 +39,9 @@ export default {
     buttonSize: {
       type: String,
       default: "s",
+      validator(value) {
+        return ['l', 'm', 's', 'xs'].includes(value)
+      }
     },
     buttonType: {
       type: String,
@@ -51,6 +56,16 @@ export default {
     },
   },
   computed: {
+    iconSize(){
+      const sizesMap = {
+        xl: 20,
+        l: 20,
+        m: 20,
+        s: 16,
+        xs: 16,
+      }
+      return sizesMap[this.buttonSize];
+    },
     iconRight() {
       if (this.iconOnly) return false;
       return this.icon;
@@ -101,6 +116,9 @@ export default {
 @import "../assets/styles/variables";
 .b-dropdown {
   padding: 0 !important;
+  .b-btn-inner {
+    padding: 6px 12px;
+  }
 }
 .b-dropdown-content {
   padding: 6px;
@@ -109,5 +127,6 @@ export default {
   border: 1px solid $b-base-04;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
   border-radius: 8px !important;
+  max-width: unset;
 }
 </style>
