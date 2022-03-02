@@ -14,6 +14,7 @@
       'b-btn-xs': size === 'xs',
       'b-btn-icon-only': iconOnly,
       'b-btn-block': block,
+      '--iconLeft': iconLeft,
       'b-btn-loading': loading,
       'b-btn-select': _inselect,
       'b-btn-select-open': _inselectOpen,
@@ -164,7 +165,7 @@ export default {
   cursor: pointer;
   outline: none;
   position: relative;
-
+  padding: 0;
   &:hover:enabled {
     background-color: $b-primary-hover;
     border-color: $b-primary-hover;
@@ -267,9 +268,18 @@ export default {
   padding: 10px 16px;
 }
 
-.b-btn-xs .b-btn-inner {
-  font-size: 13px;
-  padding: 6px 12px;
+
+
+.b-btn-xs {
+  &.--iconLeft {
+    .b-btn-inner {
+      padding: 6px 10px 6px 12px;
+    }
+  }
+  .b-btn-inner {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
 }
 
 .b-btn-icon-only {
